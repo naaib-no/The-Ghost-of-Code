@@ -1,0 +1,297 @@
+<!-- Estructura básica del documento HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Configuración de codificación y vista responsiva -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <!-- Título de la página -->
+  <title>Página Principal - Sistema de Denuncias</title>
+   <!-- Fuente personalizada desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+   <!-- Librería para efectos de partículas de fondo -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Hoja de estilos personalizada -->
+  <link rel="stylesheet" href="../css/pagina_principal.css?v=4">
+   <!-- Hoja de estilos para mapas Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"> 
+</head>
+<body>
+   <!-- Fondo animado de partículas -->
+  <div id="particles-js"></div>
+   <!-- Efectos visuales de niebla -->
+  <div class="fog-blur" style="top: 10%; left: 5%;"></div> <!-- Efecto de niebla en la parte superior izquierda -->
+  <div class="fog-blur" style="top: 10%; left: 5%;"></div> <!-- Efecto de niebla en la parte superior izquierda -->
+<div class="fog-blur" style="bottom: 10%; right: 10%; animation-delay: 8s;"></div> <!-- Efecto de niebla en la parte inferior derecha -->
+  <div class="fog-blur" style="bottom: 10%; right: 10%; animation-delay: 8s;"></div> <!-- Efecto de niebla en la parte inferior derecha -->
+  <div class="fog-blur" style="top: 20%; left: 20%; animation-delay: 4s;"></div> <!-- Efecto de niebla en la parte superior izquierda -->
+  <header>
+    <!-- Encabezado principal con logo y menú -->
+    <div class="logo">  <!-- Logo del sistema -->
+      <img src="../imagenes/logo_cecyayuda.png" alt="Logo"> <!-- Logo del sistema -->
+      <h1>CecyAyuda</h1> <!-- Nombre del sistema -->
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <div class="menu-toggle" id="menuToggle">   <!-- Botón para mostrar/ocultar el menú lateral -->
+      <span></span><span></span><span></span> <!-- Tres líneas que forman el icono de menú hamburguesa -->
+    </div>
+
+    <!-- Menú lateral -->
+    <nav class="sidebar" id="sidebar"> <!-- Menú lateral que se despliega al hacer clic en el botón hamburguesa -->
+       <!-- Enlaces a diferentes secciones del sistema, cada uno con un ícono SVG --> 
+          <a href="pagina principal denuncia pec.html">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16"> <!-- Icono de casa -->
+  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/> <!-- Icono de casa -->
+</svg>  Página Principal</a>
+ <a href="Podcast.html">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+    <path d="M8 12a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v4a3 3 0 0 0 3 3z"/>
+    <path d="M5 10.5a.5.5 0 0 1 .5.5v1a2.5 2.5 0 0 0 5 0v-1a.5.5 0 0 1 1 0v1a3.5 3.5 0 0 1-7 0v-1a.5.5 0 0 1 .5-.5z"/>
+    <path d="M8 15a.5.5 0 0 1-.5-.5V14h1v.5a.5.5 0 0 1-.5.5z"/>
+  </svg>
+  Informacion adicional
+</a>
+<a href="../php/consulta_tipos_de_violencia.php"> <!-- Enlace a la página de tipos de violencia -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"> <!-- Icono de triángulo de advertencia -->
+      <path d="M7.938 2.016a.13.13 0 0 1 .125 0l6.857 11.856c.028.049.043.105.043.163a.25.25 0 0 1-.25.25H1.287a.25.25 0 0 1-.25-.25.267.267 0 0 1 .043-.163L7.938 2.016zm.89 3.534a.535.535 0 0 0-1.056 0l-.35 3.5a.5.5 0 0 0 .5.55h.756a.5.5 0 0 0 .5-.55l-.35-3.5zM8 12.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5z"/> <!-- Icono de triángulo de advertencia -->
+    </svg>  <!-- Título del enlace -->
+    Tipos de Violencia
+  </a>
+  <a href="../php/instituciones.php">  <!-- Enlace a la página de instituciones -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16"><!-- Icono de edificio -->
+      <path d="M6.5 15V1h-2v14h2zm5 0V1h-2v14h2zm-8 0V1h-2v14h2zm11 0V1h-2v14h2z"/>  <!-- Icono de edificio -->
+      <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1h-14v1zm1-2h12v-1h-12v1zm0-2h12v-1h-12v1zm0-2h12v-1h-12v1zm0-2h12v-1h-12v1zm0-2h12v-1h-12v1z"/> <!-- Icono de edificio -->
+    </svg> Instituciones <!-- Título del enlace -->
+    
+      <a href="formulario_denuncia.html">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">  <!-- Icono de archivo -->
+  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>   <!-- Icono de archivo -->
+</svg>  Hacer Denuncia</a>  <!-- Enlace al formulario de denuncia -->
+      <a href="../php/consultar.php">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16"> <!-- Icono de colección -->
+  <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"/> <!-- Icono de colección -->
+</svg>  Consultar Estado</a>  
+<a href="juego_preguntas.html">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller" viewBox="0 0 16 16">
+    <path d="M11.5 6a.5.5 0 0 1 .5.5V8h1.5a.5.5 0 0 1 0 1H12v1.5a.5.5 0 0 1-1 0V9H9.5a.5.5 0 0 1 0-1H11V6.5a.5.5 0 0 1 .5-.5z"/>
+    <path d="M6.5 2a5.5 5.5 0 0 0-5.478 6.09A2.5 2.5 0 0 0 3.5 15h9a2.5 2.5 0 0 0 2.478-2.91A5.5 5.5 0 0 0 6.5 2zm0 1a4.5 4.5 0 0 1 4.473 5.01.5.5 0 0 0 .527.49h.5a1.5 1.5 0 0 1 1.493 1.356A1.5 1.5 0 0 1 12.5 14h-9a1.5 1.5 0 0 1-1.493-1.644A1.5 1.5 0 0 1 2.5 9.5h.5a.5.5 0 0 0 .527-.49A4.5 4.5 0 0 1 6.5 3z"/>
+  </svg>
+  Juego de Preguntas
+</a>
+  <a href="formulario_satisfaccion.html">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+    <path d="M4 1.5A1.5 1.5 0 0 1 5.5 0h5A1.5 1.5 0 0 1 12 1.5V2h1.5A1.5 1.5 0 0 1 15 3.5v11A1.5 1.5 0 0 1 13.5 16h-11A1.5 1.5 0 0 1 1 14.5v-11A1.5 1.5 0 0 1 2.5 2H4v-.5zm1 0V2h6v-.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5zM2.5 3A.5.5 0 0 0 2 3.5v11a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5H13v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1H2.5z"/>
+  </svg>
+  Satisfacción
+</a>
+
+    <!-- Interruptor para cambiar entre modo claro y oscuro -->
+    <label class="switch" style="margin-top: 30px;"> <!-- Etiqueta para el interruptor -->
+  <input type="checkbox" id="darkModeToggle"> <!-- Checkbox para el interruptor -->
+  <span class="slider"></span> <!-- Estilo del interruptor -->
+</label>
+<span id="darkModeLabel" style="display: block; margin-top: 10px; font-weight: bold; text-align: center;"> <!-- Etiqueta para el modo oscuro -->
+  Modo Claro
+</span>
+    </nav>
+  </header>
+ <!-- Contenido principal de la página -->
+  <div class="container">
+     <!-- Información sobre tipos de violencia de género -->
+    <h2>Violencia de género</h2>
+    <p><span class="highlight"> ¿Qué es la violencia de género?</span> La violencia de género es cualquier acto de agresión física, psicológica, sexual, económica o simbólica que se comete contra una persona por razón de su género, y que busca mantener el control, el poder o la subordinación.</p>
+    <p><span class="highlight">Características de la violencia de género:</span>No siempre es visible: puede comenzar con control, celos o aislamiento, Es progresiva: suele intensificarse con el tiempo si no se detiene, Puede darse en cualquier entorno: en la pareja, la familia, el trabajo, la escuela o incluso en redes sociales.</p>
+    <p><span class="highlight">Lo que conlleva:</span> Consecuencias emocionales y físicas: ansiedad, depresión, baja autoestima, lesiones, e incluso la muerte, Aislamiento social: la víctima puede alejarse de su entorno por vergüenza o manipulación.</p>
+    <p><span class="highlight">¿Por qué se produce?:</span> Diversos factores culturales, económicos y sociales contribuyen a perpetuarla. Las actitudes tradicionales sobre el rol de los géneros y las desigualdades de poder son algunos de los factores que alimentan este problema. Sin embargo, el marco legal e institucional también juega un papel clave, ya que la falta de leyes protectoras o de mecanismos de apoyo efectivos pueden exacerbar la vulnerabilidad de las víctimas.</p>
+  <!-- Botón para abrir modal con información adicional -->
+    <div class="button-container"> <!-- Contenedor para el botón -->
+      <button onclick="document.getElementById('infoModal').style.display='block'; showModalPageImproved(1);">Ver más</button> <!-- Botón para abrir el modal con información adicional -->
+    </div>
+<!-- Modal con información adicional y paginación interna -->
+        <div class="modal" id="infoModal"> <!-- Modal que se muestra al hacer clic en el botón "Ver más" -->
+      <div class="modal-content"> <!-- Contenido del modal -->
+        <!-- Botón para cerrar el modal -->
+      <button class="close-button" onclick="closeModal()">✕</button> <!-- Botón para cerrar el modal -->
+        <!-- Página 1 del modal -->
+      <div class="modal-text" id="modalPage1">
+        <h3>Información adicional</h3>
+        <p><strong>📍 Contexto de la Violencia de Género en Chimalhuacán:</strong> Chimalhuacán enfrenta una doble Alerta de Violencia de Género: por feminicidio (2015) y desaparición de mujeres (2019).</p>
+        <p><strong>🛡️ Acciones Institucionales:</strong></p>
+         <!-- ...otros elementos... -->
+        <ul>
+        <li>Capacitación a más de 100 servidores públicos.</li>
+        <li>Senderos Seguros con murales y mensajes de empoderamiento.</li>
+        <li>Fortalecimiento de la Policía de Género.</li>
+        <li>Construcción de un refugio para víctimas.</li>
+        </ul>
+        <div style="text-align:center; margin-top:20px;"> <!-- Contenedor para centrar el contenido -->
+        <!-- Explorador de páginas del modal -->
+            <!-- Navegación entre páginas del modal -->
+        <div class="modal-pagination"> <!-- Contenedor para la paginación del modal -->
+          <button class="arrow" id="prevPageBtn1" disabled>&larr;</button> <!-- Botón para ir a la página anterior -->
+          <span id="modalPageIndicator1">&lt;1/2&gt;</span> <!-- Indicador de la página actual -->
+          <button class="arrow" id="nextPageBtn1">&rarr;</button> <!-- Botón para ir a la página siguiente -->
+        </div>
+        </div>
+      </div>
+       <!-- Página 2 del modal -->
+       <div class="modal-text" id="modalPage2"> <!-- Modal para la segunda página de información -->
+        <h3>Información adicional (2)</h3>
+        <p><strong>📊 Datos Relevantes:</strong> 18 presuntos homicidas detenidos. Reuniones para reforzar estrategias de igualdad.</p>
+        <p><strong>📞 Recursos de Apoyo:</strong></p>
+        <ul>
+        <li>Dirección de la Mujer.</li>
+        <li>UEPAVIG.</li>
+        <li>Línea Nacional: 800 108 4053.</li>
+        </ul>
+              <!-- ...otros elementos... -->
+        <img src="../imagenes/violencia_de_genero.jpg" alt="Apoyo emocional"> <!-- Imagen relacionada con el tema -->
+        <div style="text-align:center; margin-top:20px;"> <!-- Contenedor para centrar el contenido -->
+        <!-- Explorador de páginas del modal -->
+        <div class="modal-pagination"> <!-- Contenedor para la paginación del modal -->
+          <button class="arrow" id="prevPageBtn2">&larr;</button> <!-- Botón para ir a la página anterior -->
+          <span id="modalPageIndicator2">&lt;2/2&gt;</span> <!-- Indicador de la página actual -->
+          <button class="arrow" id="nextPageBtn2" disabled>&rarr;</button> <!-- Botón para ir a la página siguiente -->
+        </div> <!-- Contenedor para la paginación del modal -->
+        </div> <!-- Contenedor para centrar el contenido -->
+      </div> <!-- Cierre del modal para la segunda página de información -->
+        <!-- Página 3 del modal -->
+     <div class="modal-text" id="modalPage3"> <!-- Modal para la tercera página de información -->
+  <h3>Investigacion QUIMICA</h3> <!-- Título de la tercera página del modal -->
+  <p><strong>SABIAS QUE?</strong> Ante una situacion de violencia esto sucede en el cuerpo humano</p> <!-- Párrafo introductorio sobre la investigación química -->
+  <ul>
+    <li>Reacciones quimicas inmediatas...Hormonas del estres: Se liberan cortisol y adrenalina</li> <!-- Reacción química inmediata en el cuerpo -->
+    <li>Respuesta Fisica: Aumenta el ritmo cardiaco, la respiracion y la tension muscular</li> <!-- Respuesta física del cuerpo ante el estrés -->
+    <li>impacto en el sistema nervioso, activacion del eje HHA: se dispara la respuesta del miedo.</li> <!-- Impacto en el sistema nervioso y activación del eje HHA -->
+    <li>Memoria y cognicion daño en el hipocampo: Afecta la memoria y la concentracion Reviven el trauma.</li> <!-- Daño en el hipocampo que afecta la memoria y la concentración -->
+    <li>Consecuencias en la salud revivicencias, ansiedad, insomnio, problemas Fisicos, migrañas, colitis, dolor de espalda</li> <!-- Consecuencias en la salud física y mental -->
+  </ul>
+   <!-- ...otros elementos... -->
+  <img src="../imagenes/infografia_quimica.jpg" alt="Instituciones de apoyo" style="width: 350px; max-width: 100%; border-radius: 10px; display: block; margin: 20px auto;"> <!-- Imagen relacionada con la investigación química -->
+  <div style="text-align:center; margin-top:20px;"> <!-- Contenedor para centrar el contenido -->
+    <div class="modal-pagination"> <!-- Contenedor para la paginación del modal -->
+      <button class="arrow" id="prevPageBtn3">&larr;</button> <!-- Botón para ir a la página anterior -->
+      <span id="modalPageIndicator3">&lt;3/3&gt;</span>   <!-- Indicador de la página actual -->
+      <button class="arrow" id="nextPageBtn3" disabled>&rarr;</button> <!-- Botón para ir a la página siguiente -->
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+ <!-- Video informativo sobre el sistema -->
+    <h2 style="text-align: center; margin-top: 50px;">Video informativo</h2> <!-- Título de la sección del video informativo -->
+    <div style="text-align:center;"> <!-- Contenedor para centrar el video -->
+      <video width="420" height="420" controls autoplay muted> <!-- Video informativo con controles, reproducción automática y sin sonido -->
+        <source src="../videos/video_proyecto.mp4" type="video/mp4"> <!-- Fuente del video -->
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+    </div>
+    <!-- Sección de cómo presentar una denuncia -->
+<h2>¿Cómo presentar una denuncia?</h2>  
+<p>Denuncia de manera segura, rápida y confidencial.</p>  
+
+</div>
+<!-- Sección de cómo presentar una denuncia -->
+    <h2>¿Cómo presentar una denuncia?</h2>
+    <p>Denuncia de manera segura, rápida y confidencial.</p>
+<!-- Pasos para realizar una denuncia -->
+    <h3>Pasos para denunciar</h3>
+    <ol>
+        <!-- ...otros pasos... -->
+      <li>Visita el sitio de denuncias.</li>
+      <li>Llena tus datos.</li>
+      <li>Expón claramente los hechos.</li>
+      <li>Envía y guarda el número de seguimiento.</li>
+      <li>Consulta tu estado si es necesario.</li>
+    </ol>
+    <!-- Mensaje y botón del manual de usuario -->
+<p style="text-align: center; margin-top: 20px;">¿Tienes dudas sobre nuestra página? Consulta nuestro manual de usuario.</p> <!-- Mensaje centrado que invita a consultar el manual de usuario -->
+<div class="button-container"> <!-- Contenedor para el botón del manual de usuario -->
+  <a href="https://www.youtube.com/watch?v=TU_ENLACE_AQUI" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #6c63ff; color: white; border-radius: 10px; text-decoration: none; font-weight: bold; transition: background-color 0.3s;"> <!-- Enlace al manual de usuario -->
+    Manual de Usuario
+  </a>
+<!-- Enlace al formulario de denuncia -->
+    <div class="button-container">
+      <a href="formulario_denuncia.html">Acceder al formulario</a>
+    </div>
+      <!-- Sección para encontrar ayuda cercana usando mapa -->
+   <h4>Encuentra ayuda cerca de ti</h4>
+<p>Descubre centros cercanos según tu ubicación actual.</p>
+<!-- Botón para mostrar el mapa interactivo -->
+<div class="button-container" data-aos="fade-up">
+  <button onclick="mostrarMapaLeaflet()">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg>  Ver mapa de ayuda cercana</button>
+</div>
+  <!-- Contenedor del mapa, inicialmente oculto -->
+<div id="mapa-ayuda" style="height: 400px; border-radius: 15px; overflow: hidden; margin-top: 25px; display: none; position: relative;"> <!-- Contenedor del mapa con estilo y posición relativa -->
+  <button id="cerrar-mapa-btn" style="display:none; position:absolute; top:10px; right:10px; z-index:1000;">Cerrar mapa</button> <!-- Botón para cerrar el mapa, inicialmente oculto -->
+</div>
+
+<!-- Contenedor principal de las fuentes de información -->
+<div id="fuentes-info" class="fuentes-container" style="margin-top: 50px; text-align: center;">
+  <!-- Título de la sección -->
+  <h3 style="color: #fff; font-size: 24px; margin-bottom: 20px;">🌐 Fuentes Oficiales de Consulta</h3>
+
+  <!-- Tarjeta del INEGI -->
+  <div class="fuente-card" onclick="animarZoom(this)"> <!-- Se activa animación al hacer clic -->
+    <img src="../imagenes/inegi.png" alt="INEGI" class="fuente-logo"> <!-- Imagen circular del INEGI -->
+    <div class="fuente-info"> <!-- Información textual -->
+      <h4>INEGI</h4> <!-- Nombre de la fuente -->
+      <p>Estadísticas confiables sobre violencia, población y más.</p> <!-- Descripción -->
+      <a href="https://www.inegi.org.mx/" target="_blank">Visitar sitio</a> <!-- Enlace externo -->
+    </div>
+  </div>
+
+  <!-- Tarjeta del INMUJERES -->
+  <div class="fuente-card" onclick="animarZoom(this)">
+    <img src="../imagenes/inmujeres.png" alt="INMUJERES" class="fuente-logo">
+    <div class="fuente-info">
+      <h4>INMUJERES</h4>
+      <p>Institución nacional que promueve la igualdad de género.</p>
+      <a href="https://www.gob.mx/inmujeres" target="_blank">Visitar sitio</a>
+    </div>
+  </div>
+
+  <!-- Tarjeta de Datos Abiertos -->
+  <div class="fuente-card" onclick="animarZoom(this)">
+    <img src="../imagenes/datos.png" alt="Datos México" class="fuente-logo">
+    <div class="fuente-info">
+      <h4>Datos Abiertos</h4>
+      <p>Consulta bases de datos oficiales del Gobierno de México.</p>
+      <a href="https://datos.gob.mx/" target="_blank">Visitar sitio</a>
+    </div>
+  </div>
+</div>
+
+ <!-- Pie de página con derechos de autor -->
+  <footer>
+    <p>&copy; 2025 Sistema de Denuncias. Todos los derechos reservados, por la compañia TGC.</p>
+  </footer>
+ <!-- Chatbot de ayuda al usuario -->
+
+</div>
+<div class="chatbot-container"> <!-- Contenedor del chatbot -->
+  <div class="chatbot-toggle" onclick="toggleChatbot()">💬</div>  
+  <div class="chatbot-window" id="chatbot"> <!-- Ventana del chatbot -->
+    <div class="chatbot-header">¿Necesitas ayuda?</div> <!-- Encabezado del chatbot -->
+    <div class="chatbot-body" id="chat-messages"> <!-- Cuerpo del chatbot donde se mostrarán los mensajes -->
+      <div class="bot-msg">Hola 👋 ¿En qué puedo ayudarte?</div>      <!-- Mensaje inicial del bot -->  
+    </div> <!-- Cierre del cuerpo del chatbot -->
+    <div style="display: flex; border-top: 1px solid #ccc;">
+  <input type="text" id="chat-input" placeholder="Escribe aquí..." onkeypress="handleChat(event)" style="flex: 1; padding: 10px; border: none;">
+<button onclick="enviarMensajeChat()" style="padding: 10px; background-color: #6c63ff; color: white; border: none; cursor: pointer;">Enviar</button>
+</div> <!-- Campo de entrada de texto para el usuario -->
+  </div>
+ <!-- Inclusión de scripts JavaScript para funcionalidades interactivas -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>  <!-- Script para partículas de fondo -->
+  <script src="../javascript/pagina_principal.js"></script> <!-- Script personalizado para la página principal -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>  <!--script para mapas LeafLet -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init(); // Inicializa AOS
+</script>
+</body>
+</html>

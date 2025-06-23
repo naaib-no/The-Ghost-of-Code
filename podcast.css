@@ -1,0 +1,464 @@
+
+/* Restablece los márgenes, el relleno y el modelo de caja para todos los elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo de la página */
+body {
+  font-family: 'Segoe UI', sans-serif; /* Fuente principal */
+  background: linear-gradient(135deg, #6a11cb, #482a61); /* Fondo degradado */
+  height: 100vh; /* Altura completa de la ventana */
+  display: flex; /* Usa flexbox para centrar el contenido */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  overflow: hidden; /* Oculta el desbordamiento */
+  color: white; /* Color de texto */
+}
+/* Modo oscuro: 
+    Cuando el body tiene la clase .dark-mode, se cambia el fondo a un color más oscuro,
+    el texto se vuelve claro y se ajustan los colores de los enlaces. */
+body.dark-mode {
+  background: linear-gradient(135deg, #3d285f, #271347); /* Fondo degradado oscuro */
+  color: #f0f0f0; /* Texto claro para mejor legibilidad */
+}
+/* Estilos del header (barra superior fija) */
+    header {
+  background-color: #fff;
+  padding: 10px 20px; /* reduce padding para que esté más pegado */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;     /* para que esté fijo arriba */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+/* Header en modo oscuro: 
+    Cuando el body tiene la clase .dark-mode, el header cambia a un fondo oscuro,
+    el texto se vuelve claro y la sombra se intensifica para mayor contraste. */
+body.dark-mode header {
+  background-color: #23213a; /* Fondo oscuro para el header */
+  color: #f0f0f0;            /* Texto claro para mejor legibilidad */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra más marcada */
+}
+
+/* Logo y animación: 
+    El contenedor .logo usa flexbox para alinear los elementos del logo horizontalmente
+    y separarlos con un espacio de 10px. */
+.logo {
+  display: flex;         /* Usa flexbox para alinear elementos hijos */
+  align-items: center;   /* Centra verticalmente los elementos */
+  gap: 10px;             /* Espacio horizontal entre los elementos del logo */
+}
+
+
+/* Imagen del logo:
+    La imagen dentro de .logo se ajusta a 50px de alto y se le aplica una animación
+    llamada 'float' que la hace flotar suavemente de arriba a abajo de forma infinita. */
+.logo img {
+  height: 50px;                          /* Altura fija para la imagen del logo */
+  animation: float 3s ease-in-out infinite; /* Animación de flotación continua */
+   border-radius: 15%; /* Hace el logo completamente redondo */
+}
+/* Animación de flotación para el logo */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 4px 0;
+  background: #7e2aa8;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* Hamburguesa animada al estar activa */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* En modo oscuro, cambia el color de las barras */
+body.dark-mode .menu-toggle span {
+  background: #7e2aa8;
+}
+
+/* Menú lateral deslizable (sidebar) */
+.sidebar {
+    position: fixed; /* Fija la barra lateral respecto a la ventana */
+    top: 0; /* Alinea arriba */
+    right: -250px; /* Oculta la barra fuera de la pantalla por defecto */
+    width: 250px; /* Ancho de la barra */
+    height: 100%; /* Altura completa de la ventana */
+    background: white; /* Fondo blanco */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Sombra lateral */
+    padding: 60px 20px; /* Espaciado interno, deja espacio arriba para header */
+    transition: right 0.4s ease; /* Transición suave al mostrar/ocultar */
+    z-index: 10; /* Sobrepone sobre otros elementos */
+}
+
+/* Sidebar en modo oscuro */
+body.dark-mode .sidebar {
+    background-color: #2d2540; /* Fondo oscuro */
+    color: #f0f0f0;            /* Texto claro */
+}
+
+/* Clase activa: muestra la barra lateral */
+.sidebar.active {
+    right: 0; /* Desplaza la barra a la vista */
+}
+
+/* Enlaces del sidebar */
+.sidebar a {
+    display: block; /* Cada enlace ocupa toda la línea */
+    margin: 20px 0; /* Espaciado vertical entre enlaces */
+    color: #7e2aa8; /* Color de texto */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 16px; /* Tamaño de fuente */
+    padding: 12px; /* Espaciado interno */
+    background-color: #f3eaff; /* Fondo suave */
+    border-radius: 10px; /* Bordes redondeados */
+    transition: background 0.3s; /* Transición de fondo al hacer hover */
+}
+
+/* Enlaces en modo oscuro */
+body.dark-mode .sidebar a {
+    color: #3b175b; /* Color de texto más oscuro */
+}
+
+/* Efecto hover para enlaces */
+.sidebar a:hover {
+    background-color: #e2d4fa; /* Fondo más visible al pasar el mouse */
+}
+
+/* Hover en modo oscuro */
+body.dark-mode .sidebar a:hover {
+    background: #3a2c4f; /* Fondo oscuro al pasar el mouse */
+}
+
+/* Contenedor principal con efecto de tarjeta de vidrio */
+.container {
+  width: 90%; /* Ancho relativo */
+  max-width: 600px; /* Ancho máximo */
+  background: rgba(255, 255, 255, 0.05); /* Fondo semitransparente */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 2rem; /* Espaciado interno */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  text-align: center; /* Centra el texto */
+  box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Sombra */
+  opacity: 0; /* Inicialmente invisible */
+  transform: scale(0.95); /* Ligeramente reducido */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Transiciones suaves */
+}
+
+/* Clase para mostrar el contenedor con animación */
+.container.show {
+  opacity: 1; /* Totalmente visible */
+  transform: scale(1); /* Escala normal */
+}
+
+/* Imagen del podcast, circular y centrada */
+.podcast-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Hace la imagen circular */
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  margin-bottom: 1.5rem; /* Espacio inferior */
+  border: 3px solid white; /* Borde blanco */
+}
+
+/* Texto informativo */
+.info-text {
+  margin: 1rem 0; /* Espaciado vertical */
+  font-size: 1.1rem; /* Tamaño de fuente */
+  min-height: 80px; /* Altura mínima */
+}
+
+/* Botón de audio */
+.audio-btn {
+  background-color: #ffffff22; /* Fondo semitransparente */
+  border: none; /* Sin borde */
+  color: white; /* Texto blanco */
+  padding: 12px 20px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor de mano */
+  transition: background 0.3s; /* Transición de fondo */
+  margin-top: 1rem; /* Espacio superior */
+  font-size: 1rem; /* Tamaño de fuente */
+}
+
+/* Efecto hover para el botón de audio */
+.audio-btn:hover {
+  background-color: #ffffff44; /* Fondo más visible al pasar el mouse */
+}
+
+/* Botón de disparo/acción, posicionado en la parte inferior */
+.trigger-btn {
+  position: absolute; /* Posicionamiento absoluto */
+  bottom: 30px; /* Distancia desde abajo */
+  background-color: #9f7aea; /* Color de fondo */
+  border: none; /* Sin borde */
+  color: white; /* Texto blanco */
+  padding: 10px 25px; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  border-radius: 30px; /* Bordes muy redondeados */
+  cursor: pointer; /* Cursor de mano */
+  transition: background 0.3s; /* Transición de fondo */
+}
+
+/* Efecto hover para el botón de disparo */
+.trigger-btn:hover {
+  background-color: #805ad5; /* Color de fondo al pasar el mouse */
+}
+/* Switch de modo claro/oscuro: 
+    El contenedor .switch crea un interruptor personalizado para alternar entre modos.
+    Se centra horizontalmente y tiene un tamaño fijo. */
+.switch {
+  display: block;
+  position: relative; /* Permite posicionar .slider dentro del switch */
+  width: 60px;
+  height: 30px;
+  margin: 30px auto 0 auto; /* Centra el switch horizontalmente */
+  z-index: 999;
+}
+
+/* Oculta el input real del switch para usar un diseño personalizado */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Barra deslizante del switch (fondo del interruptor) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc; /* Color de fondo por defecto */
+  border-radius: 34px;    /* Bordes redondeados */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background-color 0.4s; /* Transición suave de color */
+}
+
+/* Círculo deslizante e icono (sol/luna) dentro del switch */
+.slider:before {
+  position: absolute;
+  content: "🌞"; /* Icono de sol por defecto */
+  height: 26px;
+  width: 26px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%; /* Hace el círculo */
+  transition: transform 0.4s; /* Transición al mover el círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* Cuando el input está activado (modo oscuro), cambia el fondo y el icono */
+input:checked + .slider {
+  background-color: #6c3cb5; /* Fondo morado en modo oscuro */
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px); /* Mueve el círculo a la derecha */
+  content: "🌙";               /* Cambia el icono a luna */
+}
+
+/* Modal en modo oscuro: cambia el fondo y el color del texto */
+body.dark-mode .modal-content {
+  background-color: #23213a;
+  color: #f0f0f0;
+  box-shadow: 0 8px 24px rgba(255,255,255,0.08);
+}
+
+/* Títulos del modal en modo oscuro */
+body.dark-mode .modal-text h3 {
+  color: #a178e3;
+}
+
+/* Texto del modal en modo oscuro */
+body.dark-mode .modal-text p {
+  color: #e0e0e0;
+}
+
+/* Etiqueta del switch: color y tamaño de fuente */
+#darkModeLabel {
+  color: #7e2aa8;
+  font-size: 15px;
+}
+
+/* Etiqueta del switch en modo oscuro */
+body.dark-mode #darkModeLabel {
+  color: #f0f0f0;
+}
+
+/* --- Responsive Design para móviles --- */
+@media (max-width: 600px) {
+  /* Ajusta el body para dejar espacio al header fijo y permite scroll */
+  body {
+    padding-top: 60px; /* Espacio para el header */
+    height: auto;
+    align-items: flex-start; /* Alinea el contenido arriba */
+    overflow: auto; /* Permite desplazamiento */
+  }
+
+  /* Header más compacto en móviles */
+  header {
+    padding: 8px 10px;
+  }
+
+  /* Logo más pequeño */
+  .logo img {
+    height: 36px;
+  }
+
+  /* Contenedor principal más estrecho y con menos padding */
+  .container {
+    width: 98%;
+    max-width: 98%;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 20px;
+  }
+
+  /* Imagen del podcast más pequeña */
+  .podcast-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+
+  /* Texto informativo más pequeño */
+  .info-text {
+    font-size: 1rem;
+    min-height: 50px;
+  }
+
+  /* Botones más pequeños y con menos padding */
+  .audio-btn,
+  .trigger-btn {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+
+  /* Botón de acción ocupa todo el ancho y se posiciona de forma estática */
+  .trigger-btn {
+    position: static;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  /* Barra lateral ocupa toda la pantalla y se oculta por defecto */
+  .sidebar {
+    width: 100vw;                /* Ocupa todo el ancho de la pantalla */
+    height: 100vh;               /* Ocupa toda la altura */
+    right: -100vw;               /* Oculta completamente fuera de la pantalla */
+    top: 0;
+    padding: 60px 10px 20px 10px;
+    background: rgba(34, 24, 56, 0.98); /* Fondo oscuro semitransparente */
+    box-shadow: none;
+    z-index: 2000;               /* Muy por encima de otros elementos */
+    transition: right 0.4s cubic-bezier(.77,0,.18,1);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: auto;
+  }
+/* Cuando la barra lateral está activa, se muestra */
+  .sidebar.active {
+    right: 0;
+  }
+
+  /* Los enlaces ocupan todo el ancho y tienen más separación */
+  .sidebar a {
+    width: 100%;
+    margin: 12px 0;
+    font-size: 1.1rem;
+    padding: 14px 10px;
+    text-align: left;
+    background: #fff;
+    color: #7e2aa8;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  /* En modo oscuro, enlaces con fondo oscuro */
+  body.dark-mode .sidebar a {
+    background: #3a2c4f;
+    color: #f0f0f0;
+  }
+
+
+
+  /* Switch de modo oscuro más pequeño */
+  .switch {
+    width: 48px;
+    height: 24px;
+    margin-top: 18px;
+  }
+
+  /* Círculo del switch más pequeño */
+  .slider:before {
+    height: 20px;
+    width: 20px;
+    font-size: 12px;
+    left: 2px;
+    bottom: 2px;
+  }
+
+  /* Ajusta el desplazamiento del círculo en modo oscuro */
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+/* Botón hamburguesa siempre visible y por encima de la sidebar */
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: flex !important;      /* Asegura que se muestre */
+    position: fixed;               /* Fijo en la pantalla */
+    top: 16px;
+    right: 18px;
+    z-index: 3000;                 /* Por encima de la sidebar */
+    background: none;
+  }
+  
+}};

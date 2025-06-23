@@ -1,0 +1,376 @@
+/* Estilos generales del body */
+body {  /* Estilos generales del body */
+    margin: 0;  /* Sin margen */
+    font-family: 'Segoe UI', sans-serif;    /* Fuente moderna y legible */
+    background: linear-gradient(to bottom right, #5e2c82, #9c27b0); /* Degradado de fondo */
+    color: white;   /* Color de texto */
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+}
+
+/* Modo oscuro para el body */
+body.dark-mode {    /* Modo oscuro */
+    background: linear-gradient(135deg, #23213a, #3a2c4f, #1a1830, #2b2250); /* Degradado animado */
+    color: #f0f0f0; /* Color de texto en modo oscuro */
+    transition: background 0.8s;    /* Transición suave al cambiar a modo oscuro */
+}
+
+/* Estilos del header */
+header {
+    background-color: #fff; /* Fondo blanco */
+    padding: 10px 20px; /* Espaciado interno reducido */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra */
+    display: flex;  /* Flexbox para disposición */
+    align-items: center;    /* Alineación vertical */
+    justify-content: space-between; /* Espacio entre logo y menú */
+    position: fixed; /* Fijo arriba */
+    top: 0;   /* Fijo en la parte superior */
+    left: 0;    /* Alineación a la izquierda */
+    width: 100%;    /* Ancho completo */
+    z-index: 1000;  /* Asegura que el header esté encima de otros elementos */
+}
+
+/* Header en modo oscuro */
+body.dark-mode header { /* Header en modo oscuro */
+    background-color: #23213a;  /* Fondo oscuro */
+    color: #f0f0f0; /* Color de texto en modo oscuro */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);  /* Sombra más oscura */
+}
+
+/* Logo y animación */
+.logo { /* Contenedor del logo */
+    display: flex;      /* Flexbox para alinear logo y título */
+    align-items: center;    /* Alineación vertical */
+    gap: 10px;  /* Espacio entre logo y título */
+}
+.logo img { /* Logo */
+    height: 50px;   /* Tamaño del logo */
+    animation: float 3s ease-in-out infinite; /* Animación flotante */
+      border-radius: 15%; /* Hace el logo completamente redondo */
+
+      
+}
+
+/* Animación de flotación para el logo */
+@keyframes float {  /* Animación de flotación */
+    0% {    /* Comienza en la posición original */
+        transform: translateY(0);   /* Efecto de flotación */
+    }
+    50% {   /* Flota hacia arriba */
+        transform: translateY(-6px);    /* Efecto de flotación hacia arriba */
+    }
+    100% {  /* Vuelve a la posición original */
+        transform: translateY(0);   /* Efecto de flotación */
+    }
+}
+
+.logo h1 {  /* Título del logo */
+    color: #5e2c82; /* Color para modo claro */
+    margin: 0;  /* Sin margen */
+    font-weight: 700;   /* Negrita para el título */
+}
+body.dark-mode .logo h1 {   /* Logo en modo oscuro */
+    color: #f0f0f0; /* Color para modo oscuro */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn { /* Animación de entrada suave */
+    from { opacity: 0; transform: translateY(10px); }   /* Efecto de entrada suave */
+    to { opacity: 1; transform: translateY(0); } /* Efecto de entrada suave */
+}
+
+/* Contenedor principal */
+.container {    /* Contenedor principal */
+    max-width: 800px;   /* Ancho máximo del contenedor */
+    margin: 60px auto;  /* Margen superior para el header fijo */
+    background: white;  /* Fondo blanco */
+    padding: 30px;  /* Espaciado interno */
+    border-radius: 15px;    /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);   /* Sombra */
+    color: #333;    /* Color de texto */
+    transition: all 0.3s ease;  /* Transición suave */
+}
+
+/* Contenedor en modo oscuro */
+body.dark-mode .container { /* Contenedor en modo oscuro */
+    background: rgba(33, 30, 71, 0.92);     /* Fondo oscuro con transparencia */
+    color: #f0f0f0; /* Color de texto en modo oscuro */
+}
+body.dark-mode .container p,    /* Texto en modo oscuro */
+body.dark-mode .container li,   /*texto en modo oscuro*/
+body.dark-mode .container .highlight {  /* Texto en modo oscuro */
+    color: #f0f0f0; /* Color de texto en modo oscuro */
+    background-color: transparent;  /* Fondo transparente en modo oscuro */
+}
+body.dark-mode .container .highlight {  /* Resaltado en modo oscuro */
+    background-color: #3a2c4f;  /* Fondo resaltado en modo oscuro */
+    color: #a178e3; /* Color de texto resaltado en modo oscuro */
+}
+
+/* Títulos */
+h2, h3 {    /* Títulos */
+    color: #5e2c82; /* Color de los títulos */
+}
+
+/* Formularios */
+form {  /* Formularios */
+    display: flex;      /* Flexbox para disposición */
+    flex-direction: column; /* Disposición vertical */
+    gap: 15px;  /* Espacio entre campos */
+}
+
+/* Select y botones */
+select, button {    /* Select y botones */
+    padding: 10px;  /* Espacio interno */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 2px solid #5e2c82;  /* Borde morado */
+    font-size: 16px;    /* Tamaño de fuente */
+}
+select:focus, button:focus {    /* Enfoque en select y botones */
+    outline: none;  /* Sin borde al enfocar */
+    box-shadow: 0 0 5px #9c27b0;    /* Sombra al enfocar */
+}
+button {    /* Botones */
+    background-color: #5e2c82;  /* Color de fondo del botón */
+    color: white;   /* Color de texto */
+    font-weight: bold;  /* Negrita para botones */
+    cursor: pointer;    /* Cambia el cursor al pasar por encima */
+    transition: background 0.3s ease;   /* Transición suave */
+}
+button:hover {  /* Hover en botón */
+    background-color: #7e42a6;  /* Color más claro al pasar el ratón */
+}
+
+/* Listas */
+ul {    /* Listas */
+    margin-top: 20px;   /* Espacio superior */
+    padding-left: 20px;   /* Espacio a la izquierda */
+}
+li {    /* Elementos de la lista */
+    margin-bottom: 10px;    /* Espacio entre elementos de la lista */
+}
+
+/* Párrafos */
+p { /* Párrafos */
+    color: #444;    /* Color de texto */
+}
+
+/* Botón de menú hamburguesa */
+.menu-toggle {  /* Contenedor del menú hamburguesa */
+    width: 30px;    /* Ancho del menú hamburguesa */
+    height: 30px;   /* Tamaño del menú hamburguesa */
+    margin-right: 30px; /* Espacio a la derecha */
+    position: relative;     /* Posición relativa para el menú hamburguesa */
+    cursor: pointer;    /* Cambia el cursor al pasar por encima */
+    z-index: 11;    /* Asegura que el menú hamburguesa esté encima de otros elementos */
+}
+.menu-toggle span { /* Líneas del menú hamburguesa */
+    display: block;   /* Muestra las líneas del menú hamburguesa */
+    height: 4px;    /* Altura de las líneas del menú hamburguesa */
+    width: 100%;    /* Ancho completo */
+    background: #a84cc7;    /* Color de las líneas del menú hamburguesa */
+    margin: 5px 0;  /* Espacio entre las líneas */
+    border-radius: 2px; /* Bordes redondeados */
+    transition: 0.4s;   /* Transición suave */
+}
+/* Animación del menú hamburguesa al estar activo */
+.menu-toggle.active span:nth-child(1) { /* Primera línea del menú hamburguesa */
+    transform: rotate(45deg) translate(5px, 5px);   /* Rota las líneas del menú hamburguesa */
+}
+.menu-toggle.active span:nth-child(2) { /* Segunda línea del menú hamburguesa */
+    opacity: 0;   /* Oculta la segunda línea del menú hamburguesa */
+}
+.menu-toggle.active span:nth-child(3) { /* Tercera línea del menú hamburguesa */
+    transform: rotate(-45deg) translate(6px, -6px);    /* Rota las líneas del menú hamburguesa */
+}   
+
+/* Menú lateral deslizable */
+.sidebar {  /* Sidebar deslizable */
+    position: fixed;    /* Fijo en la pantalla */
+    top: 0; /* Fijo en la parte superior */
+    right: -260px;  /* Oculto inicialmente */
+    width: 250px;   /* Ancho del sidebar */
+    height: 100%;   /* Ocupa toda la altura */
+    background: white;  /* Fondo blanco */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    padding: 60px 20px; /* Espaciado interno */
+    transition: right 0.4s ease;    /* Transición suave */
+    z-index: 10;    /* Asegura que el sidebar esté encima de otros elementos */
+    transform: translateX(100%);    /* Oculta el sidebar inicialmente */
+    transition: transform 0.4s ease;    /* Transición suave */   
+}
+/* Sidebar en modo oscuro */
+body.dark-mode .sidebar {   /* Sidebar en modo oscuro */
+    background-color: #2d2540;  /* Fondo oscuro */
+    color: #f0f0f0; /* Color de texto en modo oscuro */
+}   
+/* Sidebar activo (visible) */  
+.sidebar.active {   /* Sidebar activo */
+    right: 0;   /* Muestra el sidebar */
+    transform: translateX(0);   /* Muestra el sidebar */
+}
+/* Enlaces del sidebar */
+.sidebar a {    /* Enlaces del sidebar */
+    display: block; /* Enlaces en bloque */
+    margin: 20px 0; /* Espacio entre enlaces */
+    color: #7e2aa8; /* Color de texto para enlaces */
+    text-decoration: none;  /* Sin subrayado */
+    font-weight: bold;  /* Negrita para enlaces */
+    font-size: 16px;    /* Tamaño de fuente */
+    padding: 12px;  /* Espacio interno para mejor clic */
+    background-color: #f3eaff;  /* Fondo claro para enlaces */
+    border-radius: 10px;    /* Bordes redondeados */
+    transition: background-color 0.4s;      /* Transición suave */
+}
+/* Enlaces en modo oscuro */
+body.dark-mode .sidebar a { /* Enlaces en modo oscuro */
+    color: #3b175b; /* Color de texto en modo oscuro */
+}
+/* Hover en enlaces del sidebar */
+.sidebar a:hover {  /* Hover en enlaces del sidebar */
+    background-color: #e2d4fa;  /* Fondo más claro al pasar el ratón */
+}
+body.dark-mode .sidebar a:hover {   /* Hover en enlaces del sidebar en modo oscuro */
+    background: #3a2c4f;    /* Fondo más oscuro en modo oscuro */
+}
+
+/* Switch para modo oscuro */
+.switch {   /* Contenedor del switch */
+    display: block;     /* Muestra el switch */
+    position: relative; /* Posición relativa para el switch */
+    width: 60px;    /* Ancho del switch */
+    height: 30px;   /* Tamaño del switch */
+    margin: 30px auto 0 auto;   /* Centrado del switch */
+    z-index: 999;   /* Asegura que el switch esté encima de otros elementos */
+}
+.switch input {
+    opacity: 0; /* Oculta el input */
+    width: 0;   /* Oculta el input */
+    height: 0;  /* Oculta el input */
+}
+/* Slider del switch */
+.slider {   /* Slider del switch */
+    position: absolute; /* Posición absoluta para el slider */
+    cursor: pointer;    /* Cambia el cursor al pasar por encima */
+    background-color: #ccc; /* Color del switch */
+    border-radius: 34px;    /* Bordes redondeados */
+    top: 0; /* Ocupa todo el espacio del switch */
+    left: 0;    /* Ocupa todo el espacio del switch */
+    right: 0;   /* Ocupa todo el ancho del switch */
+    bottom: 0;  /* Ocupa todo el espacio del switch */
+    transition: background-color 0.4s;  /* Transición suave */
+}
+.slider:before {    /* Icono del switch */
+    position: absolute; /* Icono del switch */
+    content: "🌞";         /* Icono de sol */
+    height: 26px;   /* Tamaño del icono */
+    width: 26px;    /* Tamaño del icono */
+    left: 2px;  /* Posición del icono */
+    bottom: 2px;    /* Posición del icono */
+    background-color: white;    /* Color del icono */
+    border-radius: 50%; /* Hace el icono redondo */
+    transition: transform 0.4s; /* Transición suave */
+    display: flex;  /* Centrado del icono */
+    align-items: center;               /* Centrado del icono */
+    justify-content: center;       /* Centrado del icono */
+    font-size: 14px;    /* Tamaño del icono */
+}
+/* Switch activado (modo oscuro) */
+input:checked + .slider {   /* Switch activado */
+    background-color: #6c3cb5;  /* Color del switch en modo oscuro */
+}
+input:checked + .slider:before {    /* Icono de luna */
+    transform: translateX(30px);    /* Mueve el icono a la derecha */
+    content: "🌙";      /*     Icono de luna */
+}
+
+/* Etiqueta del switch */
+#darkModeLabel {    /* Etiqueta del switch */
+    color: #7e2aa8; /* Color del texto del switch */
+    font-size: 15px;    /* Tamaño de fuente */
+}
+body.dark-mode #darkModeLabel { /* Etiqueta del switch en modo oscuro */
+    color: #f0f0f0; /* Color del texto en modo oscuro */
+}
+
+/* Etiqueta del switch */
+#darkModeLabel {    /* Etiqueta del switch */
+  color: #7e2aa8;   /* Color del texto del switch */
+  font-size: 15px;  /* Tamaño de fuente */
+}
+
+body.dark-mode #darkModeLabel { /* Etiqueta del switch en modo oscuro */
+  color: #f0f0f0;   /* Color del texto en modo oscuro */
+}
+
+
+/* --- Responsive para móviles --- */
+@media (max-width: 600px) { /* Estilos específicos para móviles */
+    /* Header compacto y vertical */
+    header {    /* Header compacto y vertical */
+        flex-direction: column; /* Cambia a columna */
+        align-items: flex-start;    /* Alineación vertical */
+        padding: 8px 10px;  /* Espaciado interno reducido */
+    }
+    .logo img { /* Logo más pequeño */
+        height: 36px;   /* Logo más pequeño */
+    }
+    .logo h1 {  /* Título más pequeño */
+        font-size: 20px;    /* Fuente más pequeña */
+    }
+    /* Contenedor principal ocupa casi todo el ancho y sin bordes redondeados */
+    .container {    /* Contenedor principal ocupa casi todo el ancho */
+        max-width: 100vw;       /* Ancho completo */
+        width: 100vw;   /* Ancho completo */
+        margin: 60px 0 0 0; /* Margen superior para el header fijo */
+        padding: 80px 8px 16px; /* Espaciado interno reducido */
+        border-radius: 0;   /* Sin bordes redondeados */
+        box-shadow: none;   /* Sin sombra */
+        font-size: 16px;    /* Fuente más grande */
+    }
+    /* Formularios y textos más grandes */
+    form, select, button, ul, li, p, h2, h3 {   /* Formularios y textos más grandes */  
+        font-size: 16px !important; /* Asegura que todos los textos sean más grandes */
+    }
+    /* Sidebar ocupa toda la pantalla al abrirse */
+    .sidebar { /* Sidebar ocupa toda la pantalla */
+        width: 100vw;   /* Ancho completo */
+        right: -100vw;  /* Oculto inicialmente */
+        padding: 60px 10px;   /* Espaciado interno reducido */
+        font-size: 16px;    /* Fuente más grande */
+        overflow-y: auto;   /* Permite scroll si hay mucho contenido */
+    }
+    .sidebar.active {
+        right: 0;   /* Muestra el sidebar */
+    }
+    .sidebar a {
+        font-size: 16px;    /* Fuente más grande */
+        padding: 12px;  /* Más espacio para mejor clic */
+        margin: 12px 0; /* Menos margen entre enlaces */
+    }
+    /* Switch de modo oscuro más pequeño y centrado */
+    .switch {
+        width: 44px;    /* Ancho del switch */
+        height: 22px;   /* Tamaño del switch */
+        margin: 18px auto 0 auto;   /* Centrado */
+    }
+    .slider:before {
+        height: 18px;   /* Tamaño del icono */
+        width: 18px;    /* Tamaño del icono */
+        left: 2px;  /* Posición del icono */
+        bottom: 2px;    /* Tamaño del icono */
+        font-size: 12px; /* Tamaño del icono */
+    }
+}
+/* Permitir desplazamiento en el sidebar si hay mucho contenido */
+.sidebar {  /* Permite scroll en sidebar */
+    overflow-y: auto;   /* Permite scroll vertical */
+    -webkit-overflow-scrolling: touch;  /* Desplazamiento suave en iOS */
+    max-height: 100vh;  /* Altura máxima para permitir scroll */
+}
+
+/* Opcional: Oculta el scroll en sidebar en desktop si no es necesario */
+@media (min-width: 601px) { /* En pantallas más grandes, el sidebar no necesita scroll */
+    .sidebar {          /* Oculta el scroll en desktop */
+        max-width: 250px;   /* Ancho máximo del sidebar */
+    }
+}

@@ -1,0 +1,471 @@
+/* Importa la fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    body {
+  min-height: 100vh;/* Altura mínima de la ventana */
+  margin: 0;/* Elimina márgenes por defecto */
+/* Estilos generales del body y fondo animado tipo PS5 */
+  background: linear-gradient(120deg, #6a6dea, #5153bd, #2d1987, #3a1fd3);/* Degradado de fondo */
+  background-size: 400% 400%;/* Tamaño grande para animación */
+  animation: gradientMove 15s ease infinite;/* Animación del fondo */
+  position: relative;
+  overflow: hidden; /* Oculta desbordes */
+}
+/* Animación del fondo degradado */
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+/* Canvas o elemento para partículas de fondo */
+#backgroundParticles {
+  position: fixed;           /* Fija el canvas en la ventana, no se mueve al hacer scroll */
+  top: 0; left: 0;           /* Lo posiciona en la esquina superior izquierda */
+  width: 100vw; height: 100vh; /* Ocupa todo el ancho y alto de la ventana */
+  pointer-events: none;      /* Permite que los clics pasen a los elementos debajo */
+  z-index: 0;                /* Lo coloca detrás de otros elementos en la pila de capas */
+}
+/* Modo oscuro para el body */
+body.dark-mode {
+  /* Fondo degradado animado para dark mode */
+  background: linear-gradient(135deg, #23244d, #3c3d99, #221460, #2c18a1);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: #f0f0f0; /* Texto claro */
+}
+/* Animación de aparición */
+@keyframes fadeIn {
+  from { 
+    opacity: 0;              /* Comienza invisible */
+    transform: scale(0.97);  /* Ligeramente reducido */
+  }
+  to { 
+    opacity: 1;              /* Termina completamente visible */
+    transform: scale(1);     /* Escala normal */
+  }
+}
+/* Estilos del header (barra superior) */
+header {
+  position: static;          /* Posición estática (flujo normal) */
+  width: 100%;               /* Ocupa todo el ancho */
+  background: #fff;          /* Fondo blanco */
+  color: #8e44ad;            /* Color de texto morado */
+  box-shadow: 0 4px 16px rgba(142,68,173,0.08); /* Sombra suave */
+  padding: 0;                /* Sin relleno */
+  margin: 0;                 /* Sin margen */
+  display: flex;             /* Usa flexbox para alineación */
+  align-items: center;       /* Centra verticalmente los hijos */
+  justify-content: space-between; /* Espacia los hijos al máximo */
+  min-height: 70px;          /* Altura mínima */
+  z-index: 2002;             /* Encima de la mayoría de elementos */
+}
+/* Header en modo oscuro */
+body.dark-mode header {
+  background: #23213a;       /* Fondo oscuro */
+  color: #f0f0f0;            /* Texto claro */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3); /* Sombra más oscura */
+}
+/* Logo y título */
+    .logo {
+      display: flex; /* Usa flexbox para alinear elementos hijos en línea */
+      align-items: center; /* Centra verticalmente los elementos dentro del logo */
+      gap: 16px; /* Espacio horizontal entre los elementos hijos */
+      padding: 0 32px; /* Espaciado a la izquierda y derecha del logo */
+    }
+    /* Imagen del logo */
+    .logo img {
+      height: 48px; /* Altura fija para la imagen del logo */
+      border-radius: 8px; /* Bordes redondeados */
+      background: #fff; /* Fondo blanco detrás del logo */
+      padding: 4px; /* Espaciado interno alrededor de la imagen */
+      box-shadow: 0 2px 8px rgba(142,68,173,0.10); /* Sombra suave */
+      animation: float 3s ease-in-out infinite; /* Aplica animación flotante */
+    }
+    /* Título del logo */
+    .logo h1 {
+      font-size: 1.7rem; /* Tamaño grande para el título */
+      font-weight: 700; /* Negrita */
+      letter-spacing: 1px; /* Espaciado entre letras */
+      margin: 0; /* Sin margen exterior */
+      color: #8e44ad; /* Color morado */
+      text-shadow: 0 2px 8px rgba(142,68,173,0.10); /* Sombra suave al texto */
+    }
+    /* Animación flotante para el logo */
+    @keyframes float {
+      0%, 100% { transform: translateY(0);} /* Sin desplazamiento vertical al inicio y final */
+      50% { transform: translateY(-5px);} /* Desplaza hacia arriba a la mitad de la animación */
+    }
+    /* Botón hamburguesa para menú lateral */
+    .hamburger {
+      width: 38px; /* Ancho del botón hamburguesa */
+      height: 38px; /* Alto del botón hamburguesa */
+      display: flex; /* Usa flexbox para alinear las líneas */
+      flex-direction: column; /* Apila las líneas verticalmente */
+      justify-content: center; /* Centra verticalmente las líneas */
+      align-items: center; /* Centra horizontalmente las líneas */
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
+      margin-right: 32px; /* Espacio a la derecha del botón */
+      background: #fff; /* Fondo blanco */
+      border-radius: 50%; /* Forma circular */
+      box-shadow: 0 2px 8px rgba(142,68,173,0.10); /* Sombra suave */
+      border: none; /* Sin borde */
+      z-index: 2002; /* Encima de la mayoría de elementos */
+      position: relative; /* Posicionamiento relativo para hijos */
+      transition: box-shadow 0.2s; /* Transición suave de sombra */
+    }
+    /* Efecto hover en el botón hamburguesa */
+    .hamburger:hover {
+      box-shadow: 0 4px 16px rgba(142,68,173,0.18); /* Sombra más intensa al pasar el mouse */
+    }
+    /* Líneas del botón hamburguesa */
+    .hamburger span {
+      background: #8e44ad; /* Color morado para las líneas */
+      display: block; /* Cada línea es un bloque */
+      height: 4px; /* Grosor de la línea */
+      width: 22px; /* Largo de la línea */
+      border-radius: 2px; /* Bordes redondeados */
+      margin: 2.5px 0; /* Espacio vertical entre líneas */
+      transition: all 0.4s cubic-bezier(.77,0,.18,1); /* Transición suave para animaciones */
+      position: relative; /* Posicionamiento relativo */
+    }
+    /* Animación del botón hamburguesa al estar activo */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px); /* Rota y mueve la primera línea */
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0; /* Oculta la línea del medio */
+      transform: scaleX(0.5); /* La reduce horizontalmente */
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px); /* Rota y mueve la tercera línea */
+    }
+    /* Menú lateral oculto por defecto */
+    /* Menú lateral (side-menu) */
+    .side-menu {
+      position: fixed; /* Fija el menú en la pantalla */
+      top: 0; /* Arriba de la ventana */
+      right: -320px; /* Oculto fuera de la pantalla a la derecha */
+      width: 300px; /* Ancho del menú */
+      height: 100vh; /* Altura igual a la ventana */
+      background: #fff; /* Fondo blanco */
+      box-shadow: -4px 0 24px rgba(142,68,173,0.13); /* Sombra lateral */
+      padding-top: 0; /* Sin relleno superior */
+      transition: right 0.4s cubic-bezier(.77,0,.18,1), opacity 0.3s; /* Transición suave al abrir/cerrar */
+      z-index: 1001; /* Encima de la mayoría de elementos */
+      opacity: 0; /* Inicialmente invisible */
+      pointer-events: none; /* No recibe eventos de mouse cuando está cerrado */
+      border-top-left-radius: 22px; /* Bordes redondeados arriba a la izquierda */
+      border-bottom-left-radius: 22px; /* Bordes redondeados abajo a la izquierda */
+      display: flex; /* Usa flexbox para organizar el contenido */
+      flex-direction: column; /* Apila los hijos verticalmente */
+      align-items: stretch; /* Estira los hijos al ancho del menú */
+    }
+    /* Menú lateral en modo oscuro */
+    body.dark-mode .side-menu {
+      background: #2d2540; /* Fondo oscuro */
+      color: #f0f0f0; /* Texto claro */
+      box-shadow: -4px 0 24px rgba(30,30,30,0.4); /* Sombra más oscura */
+    }
+    /* Menú lateral abierto */
+    .side-menu.open {
+      right: 0; /* Muestra el menú alineado a la derecha */
+      opacity: 1; /* Totalmente visible */
+      pointer-events: auto; /* Permite interacción */
+    }
+    /* Encabezado del menú lateral */
+    .side-menu-header {
+      display: flex; /* Usa flexbox */
+      align-items: center; /* Centra verticalmente los elementos */
+      justify-content: flex-end; /* Alinea el contenido a la derecha */
+      padding: 24px 24px 0 0; /* Espaciado superior y derecho */
+      min-height: 60px; /* Altura mínima del encabezado */
+    }
+    /* Lista del menú lateral */
+    .side-menu ul {
+      list-style: none; /* Elimina los puntos de la lista */
+      padding: 0 0 0 0; /* Sin relleno */
+      margin: 0; /* Sin margen */
+      width: 100%; /* Ocupa todo el ancho del menú */
+    }
+    /* Elementos de la lista del menú lateral */
+    .side-menu li {
+      margin: 18px 0; /* Espacio vertical entre elementos */
+      padding: 0 36px; /* Espaciado horizontal interno */
+      width: 100%; /* Ocupa todo el ancho */
+    }
+    /* Enlaces del menú lateral */
+    .side-menu li a {
+      text-decoration: none; /* Sin subrayado */
+      font-weight: 700; /* Negrita */
+      color: #8e44ad; /* Color morado */
+      font-size: 20px; /* Tamaño de fuente grande */
+      display: block; /* Ocupa todo el ancho disponible */
+      padding: 14px 0 14px 18px; /* Espaciado interno (arriba, derecha, abajo, izquierda) */
+      border-radius: 10px; /* Bordes redondeados */
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+      width: 100%; /* Ocupa todo el ancho */
+      text-align: left; /* Alinea el texto a la izquierda */
+      letter-spacing: 0.5px; /* Espaciado entre letras */
+      box-shadow: 0 2px 8px rgba(142,68,173,0.06); /* Sombra suave */
+      background: rgba(142,68,173,0.07); /* Fondo morado claro */
+    }
+    /* Enlaces del menú lateral en modo oscuro */
+    body.dark-mode .side-menu li a {
+      background: rgba(80,60,120,0.25); /* Fondo más oscuro */
+      color: #f0f0f0; /* Texto claro */
+    }
+    /* Efecto hover en enlaces del menú lateral */
+    .side-menu li a:hover {
+      background: #8e44ad; /* Fondo morado intenso */
+      color: #fff; /* Texto blanco */
+      box-shadow: 0 4px 16px rgba(142,68,173,0.13); /* Sombra más intensa */
+    }
+    /* Hover en modo oscuro */
+    body.dark-mode .side-menu li a:hover {
+      background: #6c3cb5; /* Fondo morado oscuro */
+      color: #fff; /* Texto blanco */
+    }
+    /* Capa de superposición para el menú lateral */
+    .overlay {
+      position: fixed; /* Fija la posición en la pantalla */
+      top: 0; /* Arriba */
+      left: 0; /* Izquierda */
+      width: 100vw; /* Ancho total de la ventana */
+      height: 100vh; /* Alto total de la ventana */
+      background: rgba(0, 0, 0, 0.13); /* Fondo negro translúcido */
+      opacity: 0; /* Inicialmente invisible */
+      pointer-events: none; /* No recibe eventos de mouse */
+      transition: opacity 0.3s ease; /* Transición suave de opacidad */
+      z-index: 1000; /* Capa encima del contenido pero debajo del menú */
+    }
+    /* Superposición activa */
+    /* Superposición activa: muestra la capa de fondo cuando el menú está abierto */
+    .overlay.active {
+      opacity: 1; /* Hace visible la superposición */
+      pointer-events: auto; /* Permite interacción con la superposición */
+    }
+    /* Contenedor principal del formulario de consulta */
+    .consulta-container {
+      background-color: #fff; /* Fondo blanco */
+      padding: 35px 40px; /* Espaciado interno */
+      border-radius: 15px; /* Bordes redondeados */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+      width: 100%; /* Ocupa todo el ancho disponible */
+      max-width: 420px; /* Ancho máximo */
+      text-align: center; /* Centra el texto */
+      box-sizing: border-box; /* Incluye el padding y borde en el tamaño */
+      margin: 80px auto 0 auto;/* Centrado horizontal y separado del header */
+    }
+    /* Contenedor en modo oscuro */
+    body.dark-mode .consulta-container {
+      background: rgba(30, 30, 30, 0.8); /* Fondo oscuro translúcido */
+      color: #f0f0f0; /* Texto claro */
+      box-shadow: 0 8px 32px rgba(255,255,255,0.08); /* Sombra clara */
+    }
+    /* Título del formulario */
+    h2 {
+      margin-bottom: 25px; /* Espacio debajo del título */
+      font-weight: 700; /* Negrita */
+      font-size: 1.8rem; /* Tamaño grande */
+      color: #5e3ca7; /* Color morado */
+      letter-spacing: 1.1px; /* Espaciado entre letras */
+      user-select: none; /* No permite seleccionar el texto */
+    }
+    /* Campo de email */
+    input[type="email"] {
+      width: 100%; /* Ocupa todo el ancho */
+      padding: 12px 14px; /* Espaciado interno */
+      font-size: 1rem; /* Tamaño de fuente */
+      border: 2px solid #b8a9e3; /* Borde morado claro */
+      border-radius: 8px; /* Bordes redondeados */
+      transition: border-color 0.3s ease; /* Transición suave del borde */
+      font-weight: 500; /* Seminegrita */
+      color: #2c3e50; /* Color del texto */
+      box-sizing: border-box; /* Incluye padding y borde en el tamaño */
+      margin-bottom: 25px; /* Espacio debajo del campo */
+    }
+    /* Efecto al enfocar el campo de email */
+    input[type="email"]:focus {
+      border-color: #5e3ca7; /* Borde morado intenso al enfocar */
+      outline: none; /* Sin contorno adicional */
+      box-shadow: 0 0 10px rgba(94, 60, 167, 0.4); /* Sombra morada */
+    }
+    /* Botones generales */
+    .btn {
+      font-weight: 600; /* Negrita */
+      padding: 12px 25px; /* Espaciado interno */
+      border: none; /* Sin borde */
+      border-radius: 10px; /* Bordes redondeados */
+      cursor: pointer; /* Cursor de mano */
+      transition: background-color 0.3s ease, box-shadow 0.2s ease; /* Transiciones suaves */
+      font-size: 1rem; /* Tamaño de fuente */
+      min-width: 130px; /* Ancho mínimo */
+      user-select: none; /* No permite seleccionar el texto */
+      margin: 6px 10px 0 10px; /* Margen alrededor del botón */
+      box-shadow: 0 4px 12px rgba(125, 90, 210, 0.3); /* Sombra morada */
+      color: white; /* Texto blanco */
+    }
+    /* Botón consultar */
+    .btn.consultar {
+      background: linear-gradient(135deg, #5e3ca7, #7f5fc5); /* Degradado morado para el botón consultar */
+    }
+    .btn.volver {
+      /* Botón volver */
+      background: linear-gradient(135deg, #6c757d, #495057); /* Degradado gris para el botón volver */
+    }
+    /* Hover en botones */
+    .btn:hover {
+      filter: brightness(1.1); /* Aumenta el brillo al pasar el mouse */
+      box-shadow: 0 6px 18px rgba(94, 60, 167, 0.55); /* Sombra más intensa al hacer hover */
+      transform: translateY(-2px); /* Eleva ligeramente el botón */
+    }
+    /* Responsivo para pantallas medianas */
+    @media (max-width: 700px) {
+      .consulta-container {
+      padding: 18px 4vw; /* Reduce el padding lateral */
+      margin-top: 80px; /* Mantiene separación superior */
+      }
+      .logo {
+      padding: 0 12px; /* Reduce el padding lateral del logo */
+      }
+      .hamburger {
+      margin-right: 12px; /* Reduce el margen derecho del botón hamburguesa */
+      }
+      .side-menu {
+      width: 90vw; /* Menú lateral ocupa el 90% del ancho de la ventana */
+      min-width: 180px; /* Mínimo ancho del menú lateral */
+      }
+    }
+    /* Responsivo para móviles */
+    @media (max-width: 480px) {
+      .consulta-container {
+      padding: 30px 10px; /* Padding reducido para móviles */
+      width: 100%; /* Ocupa todo el ancho */
+      max-width: 100%; /* No limita el ancho máximo */
+      margin-top: 70px; /* Menor separación superior */
+      }
+      .btn {
+      width: 100%; /* Botones ocupan todo el ancho */
+      margin: 10px 0 0 0; /* Margen superior y sin márgenes laterales */
+      }
+      .side-menu {
+      width: 98vw; /* Menú lateral casi todo el ancho de la ventana */
+      min-width: 120px; /* Mínimo ancho reducido */
+      padding-top: 0; /* Sin padding superior */
+      }
+      .side-menu li {
+      padding: 0 10px; /* Padding lateral reducido en los ítems del menú */
+      }
+    }
+
+    /* --- Estilos para el switch de modo oscuro --- */
+
+/* Contenedor del switch */
+/* Estilos para el modo oscuro */
+.switch {
+  display: block; /* Hace que el switch sea un bloque para poder centrarlo */
+  position: relative; /* Permite posicionar absolutamente los hijos dentro del switch */
+  width: 60px; /* Ancho del switch */
+  height: 30px; /* Alto del switch */
+  margin: 30px auto 0 auto; /* Centra el switch horizontalmente y agrega margen superior */
+  z-index: 999; /* Lo coloca por encima de otros elementos */
+}
+/* Oculta el input real del switch */
+.switch input {
+  opacity: 0; /* Hace el input invisible */
+  width: 0; /* Elimina el ancho del input */
+  height: 0; /* Elimina el alto del input */
+}
+/* Slider del switch */
+.slider {
+  position: absolute; /* Posiciona el slider dentro del switch */
+  cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+  background-color: #ccc; /* Color de fondo gris claro por defecto */
+  border-radius: 34px; /* Bordes redondeados para forma de píldora */
+  top: 0; /* Alinea arriba */
+  left: 0; /* Alinea a la izquierda */
+  right: 0; /* Alinea a la derecha */
+  bottom: 0; /* Alinea abajo */
+  transition: background-color 0.4s; /* Transición suave del color de fondo */
+}
+/* Botón del slider (círculo) */
+.slider:before {
+  position: absolute; /* Posiciona el círculo dentro del slider */
+  content: "🌞"; /* Muestra el icono de sol por defecto */
+  height: 26px; /* Alto del círculo */
+  width: 26px; /* Ancho del círculo */
+  left: 2px; /* Separación a la izquierda */
+  bottom: 2px; /* Separación abajo */
+  background-color: white; /* Fondo blanco para el círculo */
+  border-radius: 50%; /* Forma circular */
+  transition: transform 0.4s; /* Transición suave al mover el círculo */
+  display: flex; /* Usa flexbox para centrar el icono */
+  align-items: center; /* Centra verticalmente el icono */
+  justify-content: center; /* Centra horizontalmente el icono */
+  font-size: 14px; /* Tamaño del icono */
+}
+
+/* Slider activado (modo oscuro) */
+input:checked + .slider {
+  background-color: #6c3cb5; /* Cambia el fondo a morado cuando está activado */
+}
+/* Botón del slider en modo oscuro */
+input:checked + .slider:before {
+  transform: translateX(30px); /* Mueve el círculo a la derecha */
+  content: "🌙"; /* Cambia el icono a luna */
+}
+/* Modal en modo oscuro */
+body.dark-mode .modal-content {
+  background-color: #23213a; /* Fondo oscuro para el modal */
+  color: #f0f0f0; /* Texto claro */
+  box-shadow: 0 8px 24px rgba(255,255,255,0.08); /* Sombra clara */
+}
+/* Etiqueta del switch */
+#darkModeLabel {
+  color: #7e2aa8; /* Color morado para la etiqueta */
+  font-size: 15px; /* Tamaño de fuente */
+}
+/* Etiqueta en modo oscuro */
+body.dark-mode #darkModeLabel {
+  color: #f0f0f0; /* Color claro para la etiqueta en modo oscuro */
+}
+
+/* Barra lateral responsiva para móviles */
+/* Media query para pantallas de hasta 700px de ancho */
+@media (max-width: 700px) {
+  .side-menu {
+    width: 85vw;              /* El menú ocupa el 85% del ancho de la ventana */
+    min-width: 120px;         /* Ancho mínimo del menú */
+    max-width: 95vw;          /* Ancho máximo del menú */
+    right: -85vw;             /* Oculta el menú fuera de la pantalla a la derecha */
+    border-radius: 0 0 0 22px;/* Bordes redondeados solo en la esquina inferior izquierda */
+    padding-top: 0;           /* Sin relleno superior */
+  }
+  .side-menu.open {
+    right: 0;                 /* Muestra el menú alineado a la derecha */
+  }
+}
+
+/* Media query para pantallas de hasta 480px de ancho (móviles) */
+@media (max-width: 480px) {
+  .side-menu {
+    width: 98vw;              /* El menú ocupa casi todo el ancho de la ventana */
+    min-width: unset;         /* Elimina el ancho mínimo */
+    max-width: 99vw;          /* Ancho máximo casi igual al de la ventana */
+    right: -98vw;             /* Oculta el menú fuera de la pantalla a la derecha */
+    border-radius: 0 0 0 18px;/* Bordes redondeados solo en la esquina inferior izquierda */
+    padding-top: 0;           /* Sin relleno superior */
+  }
+  .side-menu.open {
+    right: 0;                 /* Muestra el menú alineado a la derecha */
+  }
+  .side-menu li {
+    padding: 0 6px;           /* Reduce el padding lateral de los ítems del menú */
+  }
+}
+
+/* Asegura que el menú lateral nunca sobresalga horizontalmente */
+.side-menu {
+  box-sizing: border-box;     /* Incluye el padding y borde en el tamaño total */
+  overflow-y: auto;           /* Permite desplazamiento vertical si el contenido es largo */
+  overflow-x: hidden;         /* Oculta cualquier desbordamiento horizontal */
+}

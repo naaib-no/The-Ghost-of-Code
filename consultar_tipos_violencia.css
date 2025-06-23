@@ -1,0 +1,517 @@
+/* Estilos generales para el body */
+body {
+      font-family: 'Poppins', sans-serif; /* Fuente principal */
+      background: linear-gradient(135deg, #a178e3, #caa5ff); /* Fondo degradado */
+      color: #333; /* Color de texto principal */
+      position: relative;
+      min-height: 100vh; /* Altura mínima de la ventana */
+      overflow-x: hidden; /* Oculta el scroll horizontal */
+}
+
+/* Modo oscuro para el body */
+body.dark-mode {
+  /* Fondo degradado animado para dark mode */
+  background: linear-gradient(135deg, #23213a, #3a2c4f, #1a1830, #2b2250);
+  color: #f0f0f0; /* Color de texto claro */
+  transition: background 0.8s; /* Transición suave del fondo */
+}
+
+/* Animación para mover el degradado (no está aplicada en el código) */
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Contenedor en modo oscuro */
+body.dark-mode .container {
+  background: rgba(30, 30, 30, 0.6); /* Fondo oscuro translúcido */
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1); /* Sombra clara */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+}
+
+/* Estilos para el logo */
+.logo {
+      display: flex; /* Flexbox para alinear elementos */
+      align-items: center; /* Centra verticalmente */
+      gap: 10px; /* Espacio entre elementos */
+}
+
+/* Imagen del logo con animación flotante */
+.logo img {
+      height: 50px;
+      animation: float 3s ease-in-out infinite; /* Animación de flotación */
+      border-radius: 15%; /* Bordes redondeados */
+}
+
+/* Título del logo */
+.logo h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0;
+      color: #8e44ad;
+      text-shadow: 0 2px 8px rgba(142,68,173,0.10); /* Sombra sutil */
+}
+
+/* Animación de flotación para el logo */
+@keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+}
+
+/* Estilos para el encabezado */
+header {
+  background-color: #fff; /* Fondo blanco */
+  padding: 10px 20px; /* Espaciado interno */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;     /* Fijo en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Encima de otros elementos */
+}
+
+/* Encabezado en modo oscuro */
+body.dark-mode header {
+  background-color: #23213a;
+  color: #f0f0f0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Repetición de estilos para el logo (puede eliminarse si ya está arriba) */
+.logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+}
+
+/* Imagen del logo con animación flotante (repetido) */
+.logo img {
+      height: 50px;
+      animation: float 3s ease-in-out infinite;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1000px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 100px 30px 30px; /* Espaciado interno (arriba para compensar header fijo) */
+  background: rgba(255, 255, 255, 0.6); /* Fondo blanco translúcido */
+  backdrop-filter: blur(10px); /* Efecto glass */
+  -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+  border-radius: 20px; /* Bordes redondeados */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); /* Sombra */
+  animation: fadeInUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Contenedor en modo oscuro */
+body.dark-mode .container {
+  background: rgba(33, 30, 71, 0.92); /* Fondo más oscuro y opaco */
+  color: #f0f0f0; /* Texto claro */
+}
+
+/* Texto y resaltados en modo oscuro */
+body.dark-mode .container p,
+body.dark-mode .container li,
+body.dark-mode .container .highlight {
+  color: #f0f0f0; /* Texto claro */
+  background-color: transparent; /* Elimina fondo claro de .highlight en dark */
+}
+
+/* Resaltado en modo oscuro */
+body.dark-mode .container .highlight {
+  background-color: #3a2c4f; /* Fondo sutil para highlight en dark */
+  color: #a178e3;
+}
+
+/* Títulos */
+h2, h3 {
+      color: #5d3bad;
+      margin-bottom: 15px;
+}
+
+/* Subtítulo */
+h4 { margin-top: 30px; }
+
+/* Párrafos */
+p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 10px;
+}
+
+/* Texto resaltado */
+.highlight {
+      font-weight: bold;
+      color: #a178e3;
+      background-color: #f4e9ff;
+      padding: 3px 6px;
+      border-radius: 5px;
+}
+
+/* Listas ordenadas */
+ol {
+      padding-left: 20px;
+}
+
+/* Elementos de la lista */
+ol li {
+      margin-bottom: 10px;
+}
+
+/* Botones dentro de .button-container */
+/* Botones dentro de .button-container */
+.button-container button {
+  display: inline-block; /* Hace que el botón se comporte como un elemento en línea con bloque */
+  background: linear-gradient(135deg, #8e44ad, #c39bd3); /* Fondo degradado */
+  color: white; /* Color del texto */
+  font-size: 16px; /* Tamaño de fuente */
+  padding: 12px 24px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo puntero al pasar */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  transition: all 0.3s ease; /* Transición suave para efectos */
+}
+
+/* Efecto hover para botones */
+.button-container button:hover {
+      background: linear-gradient(135deg, #732d91, #b388c2);
+      transform: translateY(-2px) scale(1.03);
+}
+
+/* Contenedor de botones */
+.button-container {
+      margin-top: 30px;
+      text-align: center;
+}
+
+/* Enlaces con estilo de botón */
+.button-container a {
+  display: inline-block; /* Hace que el enlace se comporte como un botón */
+  background: linear-gradient(135deg, #8dc49f, #76b199); /* Fondo degradado verde */
+  color: white; /* Color del texto */
+  font-size: 17px; /* Tamaño de fuente */
+  padding: 14px 24px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 10px; /* Bordes redondeados */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  cursor: pointer; /* Cursor tipo puntero al pasar */
+  transition: all 0.3s ease; /* Transición suave para efectos */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Efecto hover para enlaces tipo botón */
+.button-container a:hover {
+      background: linear-gradient(135deg, #3e6f57, #568b74);
+      transform: scale(1.05);
+}
+
+/* Botón de menú hamburguesa */
+/* Botón de menú hamburguesa (icono de tres líneas) */
+.menu-toggle {
+  width: 30px;           /* Ancho del botón */
+  height: 30px;          /* Alto del botón */
+  position: relative;    /* Posicionamiento relativo para las líneas internas */
+  cursor: pointer;       /* Cambia el cursor al pasar por encima */
+  z-index: 11;           /* Asegura que esté por encima de otros elementos */
+  margin-right: 30px;    /* Espacio a la derecha */
+}
+
+/* Líneas del menú hamburguesa */
+/* Hace que cada línea sea un bloque */
+.menu-toggle span {
+  display: block;              /* Cada línea ocupa toda la anchura disponible */
+  height: 4px;                 /* Altura de cada línea */
+  width: 100%;                 /* Ancho completo del contenedor */
+  background: #a84cc7;         /* Color de fondo de la línea */
+  margin: 5px 0;               /* Espacio vertical entre líneas */
+  border-radius: 2px;          /* Bordes redondeados para suavizar las líneas */
+  transition: 0.4s;            /* Transición suave para animaciones */
+}
+
+/* Animación del menú hamburguesa al estar activo */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Menú lateral deslizable */
+.sidebar {
+  position: fixed;                /* Fija el menú lateral respecto a la ventana */
+  top: 0;                         /* Alinea el menú al borde superior */
+  right: -250px;                  /* Inicialmente lo posiciona fuera de la pantalla a la derecha */
+  width: 250px;                   /* Ancho del menú lateral */
+  height: 100%;                   /* Altura completa de la ventana */
+  background: white;              /* Fondo blanco */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave a la izquierda */
+  padding: 60px 20px;             /* Espaciado interno (arriba y lados) */
+  transition: right 0.4s ease;    /* Transición suave para la propiedad 'right' */
+  z-index: 10;                    /* Capa sobre otros elementos */
+  transform: translateX(100%);    /* Lo mueve completamente fuera de la pantalla a la derecha */
+  transition: transform 0.4s ease;/* Transición suave para la propiedad 'transform' */
+}
+
+/* Menú lateral en modo oscuro */
+body.dark-mode .sidebar {
+  background-color: #2d2540;
+  color: #f0f0f0;
+}
+
+/* Menú lateral activo (visible) */
+.sidebar.active {
+  right: 0;
+  transform: translateX(0);
+}
+
+/* Enlaces del menú lateral */
+.sidebar a {
+  display: block;                /* Hace que el enlace ocupe todo el ancho disponible */
+  margin: 20px 0;                /* Espacio vertical arriba y abajo de cada enlace */
+  color: #7e2aa8;                /* Color del texto del enlace */
+  text-decoration: none;         /* Elimina el subrayado predeterminado de los enlaces */
+  font-weight: bold;             /* Texto en negrita */
+  font-size: 16px;               /* Tamaño de fuente */
+  padding: 12px;                 /* Espaciado interno alrededor del texto */
+  background-color: #f3eaff;     /* Color de fondo suave para el enlace */
+  border-radius: 10px;           /* Bordes redondeados */
+  transition: background 0.3s;   /* Transición suave del fondo al hacer hover */
+}
+
+/* Enlaces del menú lateral en modo oscuro */
+body.dark-mode .sidebar a {
+  color: #3b175b;
+}
+
+/* Hover en enlaces del menú lateral */
+.sidebar a:hover {
+  background-color: #e2d4fa;
+}
+body.dark-mode .sidebar a:hover {
+  background: #3a2c4f;
+}
+
+/* Animación de entrada para el contenedor */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Más notorio */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Switch para modo oscuro */
+.switch {
+  display: block;
+  position: relative; /* Cambia a relative para que .slider se posicione dentro del switch */
+  width: 60px;
+  height: 30px;
+  margin: 30px auto 0 auto; /* Centra el switch horizontalmente */
+  z-index: 999;
+}
+
+/* Oculta el input del switch */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Estilo del slider del switch */
+/* Estilo del slider del switch de modo oscuro */
+.slider {
+  position: absolute;                /* Posiciona el slider absolutamente dentro del switch */
+  cursor: pointer;                   /* Cambia el cursor al pasar por encima */
+  background-color: #ccc;            /* Color de fondo por defecto (claro) */
+  border-radius: 34px;               /* Bordes redondeados para forma de pastilla */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background-color 0.4s; /* Transición suave del color de fondo */
+}
+
+/* Icono y círculo del slider */
+.slider:before {
+  position: absolute;              /* Posiciona el pseudo-elemento absolutamente dentro del slider */
+  content: "🌞";                   /* Muestra el icono de sol por defecto (modo claro) */
+  height: 26px;                    /* Altura del círculo/interruptor */
+  width: 26px;                     /* Ancho del círculo/interruptor */
+  left: 2px;                       /* Separación desde el borde izquierdo del slider */
+  bottom: 2px;                     /* Separación desde el borde inferior del slider */
+  background-color: white;         /* Fondo blanco para el círculo/interruptor */
+  border-radius: 50%;              /* Hace el círculo completamente redondeado */
+  transition: transform 0.4s;      /* Transición suave al mover el círculo */
+  display: flex;                   /* Usa flex para centrar el icono dentro del círculo */
+  align-items: center;             /* Centra verticalmente el icono */
+  justify-content: center;         /* Centra horizontalmente el icono */
+  font-size: 14px;                 /* Tamaño del icono */
+}
+
+/* Modo activado (oscuro) para el switch */
+input:checked + .slider {
+  background-color: #6c3cb5;
+}
+
+/* Cambia el icono y mueve el círculo en modo oscuro */
+input:checked + .slider:before {
+  transform: translateX(30px);
+  content: "🌙";
+}
+
+/* Etiqueta del switch */
+#darkModeLabel {
+  color: #7e2aa8;
+  font-size: 15px;
+}
+
+/* Etiqueta del switch en modo oscuro */
+body.dark-mode #darkModeLabel {
+  color: #f0f0f0;
+}
+
+/* --- Responsive Design para móviles, hamburguesa igual que en escritorio --- */
+@media (max-width: 600px) { /* Aplica estilos solo en pantallas de hasta 600px de ancho */
+  /* Ajusta el body para dejar espacio al header fijo y permite scroll */
+  body {
+    padding-top: 60px; /* Espacio para el header fijo */
+    min-height: 100vh; /* Altura mínima de la ventana */
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+    font-size: 15px; /* Reduce el tamaño de fuente base */
+  }
+
+  /* Header más compacto en móviles */
+  header {
+    padding: 8px 10px; /* Menos espacio interno */
+  }
+
+  /* Logo más pequeño */
+  .logo img {
+    height: 36px; /* Reduce la altura de la imagen del logo */
+  }
+  .logo h1 {
+    font-size: 1.1rem; /* Reduce el tamaño del texto del logo */
+  }
+
+  /* Contenedor principal más estrecho y con menos padding */
+  .container {
+    max-width: 98vw; /* Casi todo el ancho de la ventana */
+    padding: 80px 8px 16px 8px; /* Menos espacio interno */
+    border-radius: 12px; /* Bordes menos redondeados */
+    margin-top: 10px; /* Espacio superior */
+  }
+
+  /* Títulos más pequeños */
+  h2, h3 {
+    font-size: 1.1rem; /* Reduce el tamaño de los títulos */
+    margin-bottom: 10px; /* Menos espacio inferior */
+  }
+  h4 {
+    font-size: 1rem; /* Reduce el tamaño del subtítulo */
+    margin-top: 18px; /* Menos espacio superior */
+  }
+
+  /* Párrafos y listas más compactos */
+  p, ol li {
+    font-size: 0.98rem; /* Reduce el tamaño de fuente */
+    margin-bottom: 8px; /* Menos espacio inferior */
+  }
+
+  /* Botones y enlaces tipo botón más grandes y ocupan todo el ancho */
+  .button-container button,      /* Selecciona los botones dentro de .button-container */
+  .button-container a {          /* Selecciona los enlaces dentro de .button-container */
+    font-size: 1rem;             /* Aumenta el tamaño de fuente */
+    padding: 12px 0;             /* Espaciado vertical, sin padding lateral */
+    width: 100%;                 /* Ocupan todo el ancho disponible */
+    margin-bottom: 10px;         /* Espacio inferior entre botones/enlaces */
+    border-radius: 8px;          /* Bordes redondeados */
+  }
+  .button-container {
+    margin-top: 18px; /* Menos espacio superior */
+    padding: 0 2px;   /* Espacio lateral mínimo */
+  }
+
+  /* Menú hamburguesa igual que en escritorio */
+  .menu-toggle {
+    display: block;        /* Asegura que se muestre */
+    position: fixed;       /* Fijo en la pantalla */
+    top: 18px;             /* Distancia desde arriba */
+    right: 18px;           /* Distancia desde la derecha */
+    z-index: 3001;         /* Muy por encima de otros elementos */
+    margin-right: 0;       /* Sin margen derecho extra */
+    background: none;      /* Sin fondo */
+  }
+  .menu-toggle span {
+    display: block;        /* Cada línea ocupa todo el ancho */
+    height: 4px;           /* Altura de cada línea */
+    width: 100%;           /* Ancho completo */
+    background: #a84cc7;   /* Color de las líneas */
+    margin: 5px 0;         /* Espacio entre líneas */
+    border-radius: 2px;    /* Bordes redondeados */
+    transition: 0.4s;      /* Transición suave */
+  }
+  /* Animación del menú hamburguesa al estar activo */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); /* Gira y desplaza la primera línea */
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0; /* Oculta la segunda línea */
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px); /* Gira y desplaza la tercera línea */
+  }
+
+  /* Sidebar ocupa toda la pantalla y se oculta por defecto */
+  .sidebar {
+    width: 80vw; /* Sidebar ocupa el 80% del ancho de la ventana */
+    max-width: 320px; /* No excede los 320px */
+    right: -80vw; /* Inicialmente oculto fuera de la pantalla */
+    padding: 60px 10px 20px 10px; /* Espaciado interno */
+    z-index: 2000; /* Por encima de la mayoría de los elementos */
+    transition: right 0.4s cubic-bezier(.77,0,.18,1); /* Transición suave */
+    box-shadow: -2px 0 16px rgba(0,0,0,0.18); /* Sombra a la izquierda */
+    border-radius: 0 0 0 18px; /* Bordes redondeados solo en la esquina inferior izquierda */
+  }
+  .sidebar.active {
+    right: 0; /* Sidebar visible */
+  }
+
+  /* Enlaces del sidebar ocupan todo el ancho y tienen más separación */
+  .sidebar a {
+    width: 100%;         /* Ocupan todo el ancho */
+    font-size: 1rem;     /* Tamaño de fuente mayor */
+    padding: 12px 8px;   /* Espaciado interno */
+    margin: 12px 0;      /* Espacio vertical entre enlaces */
+    border-radius: 8px;  /* Bordes redondeados */
+  }
+
+  /* Switch de modo oscuro más pequeño y centrado */
+  .switch {
+    width: 48px;      /* Más pequeño */
+    height: 24px;     /* Más bajo */
+    margin-top: 18px; /* Menos espacio superior */
+  }
+  .slider:before {
+    height: 20px;     /* Círculo más pequeño */
+    width: 20px;      /* Círculo más pequeño */
+    font-size: 12px;  /* Icono más pequeño */
+    left: 2px;        /* Separación desde la izquierda */
+    bottom: 2px;      /* Separación desde abajo */
+  }
+  input:checked + .slider:before {
+    transform: translateX(22px); /* Desplaza el círculo al activar el switch */
+  }
+}

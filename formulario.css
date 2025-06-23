@@ -1,0 +1,645 @@
+/* Importa la fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Estilos generales del body */
+body {
+  overflow-x: hidden; /* Previene el scroll horizontal */
+  width: 100%;        /* Asegura que el body ocupe todo el ancho del viewport */
+  position: relative; /* Permite posicionar elementos hijos de forma absoluta/fija respecto al body */
+  font-family: 'Inter', sans-serif; /* Usa la fuente Inter como principal */
+  background: linear-gradient(135deg, #8a66c3, #8a66c3); /* Fondo degradado morado */
+  margin: 0;          /* Elimina el margen por defecto */
+  padding: 0;         /* Elimina el padding por defecto */
+  color: #2c3e50;     /* Color de texto principal */
+  min-height: 100vh;  /* Asegura que el body tenga al menos la altura de la ventana */
+  opacity: 0;         /* Inicialmente invisible para animación */
+  transform: translateY(30px); /* Desplaza hacia abajo para animación de entrada */
+  animation: fadeInUpPage 1.2s cubic-bezier(.77,0,.18,1) forwards; /* Aplica animación de entrada */
+}
+
+/* Animación de entrada para el body */
+@keyframes fadeInUpPage {
+  0% {
+    opacity: 0;                          /* Comienza invisible */
+    transform: translateY(30px) scale(0.98); /* Desplazado y levemente reducido */
+    filter: blur(6px);                   /* Difuminado */
+  }
+  60% {
+    opacity: 1;                          /* Visible */
+    transform: translateY(-8px) scale(1.01); /* Rebote hacia arriba y levemente agrandado */
+    filter: blur(0.5px);                 /* Casi sin difuminar */
+  }
+  100% {
+    opacity: 1;                          /* Totalmente visible */
+    transform: translateY(0) scale(1);   /* Posición y tamaño normal */
+    filter: blur(0);                     /* Sin difuminado */
+  }
+}
+
+/* Modo oscuro para el body */
+body.dark-mode {
+  background: linear-gradient(135deg, #23213a, #3a2c4f); /* Fondo degradado oscuro */
+  color: #f0f0f0; /* Texto claro */
+}
+
+/* Estilos del header (barra superior) */
+header {
+  background-color: #fff; /* Fondo blanco */
+  padding: 10px 20px;     /* Espaciado interno arriba/abajo y a los lados */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra sutil */
+  display: flex;           /* Usa flexbox para alinear contenido */
+  align-items: center;     /* Centra verticalmente los elementos */
+  justify-content: space-between; /* Espacia los elementos a los extremos */
+  position: fixed;         /* Fija el header en la parte superior */
+  top: 0;                  /* Arriba de la ventana */
+  left: 0;                 /* A la izquierda de la ventana */
+  width: 100%;             /* Ocupa todo el ancho */
+  z-index: 1000;           /* Se muestra por encima de otros elementos */
+}
+
+/* Header en modo oscuro */
+body.dark-mode header {
+  background-color: #23213a; /* Fondo oscuro */
+  color: #f0f0f0;            /* Texto claro */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra más intensa */
+}
+
+/* Contenedor del logo */
+.logo {
+  display: flex;      /* Usa flexbox para alinear logo e imagen */
+  align-items: center;/* Centra verticalmente */
+  gap: 10px;          /* Espacio entre imagen y texto */
+}
+
+/* Imagen del logo con animación flotante */
+.logo img {
+  height: 50px;           /* Altura fija de la imagen */
+  animation: float 3s ease-in-out infinite; /* Aplica animación flotante */
+  border-radius: 15%;     /* Bordes redondeados (no completamente circular) */
+}
+
+/* Título del logo */
+.logo h1 {
+  font-size: 1.7rem; /* Tamaño de fuente grande para el título */
+  font-weight: 700; /* Negrita */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  margin: 0; /* Sin margen */
+  color: #8e44ad; /* Color morado */
+  text-shadow: 0 2px 8px rgba(142,68,173,0.10); /* Sombra sutil */
+}
+
+/* Animación flotante para el logo */
+@keyframes float {
+  0%, 100% { transform: translateY(0); } /* Sin desplazamiento al inicio y final */
+  50% { transform: translateY(-5px); } /* Sube 5px en la mitad de la animación */
+}
+
+/* Botón hamburguesa animado a X */
+.hamburger {
+  width: 38px; /* Ancho del botón */
+  height: 38px; /* Alto del botón */
+  display: flex; /* Usa flexbox para centrar contenido */
+  flex-direction: column; /* Apila las líneas verticalmente */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  cursor: pointer; /* Cursor de mano */
+  margin-right: 32px; /* Espacio a la derecha */
+  background: #fff; /* Fondo blanco */
+  border-radius: 50%; /* Forma circular */
+  box-shadow: 0 2px 8px rgba(142,68,173,0.10); /* Sombra sutil */
+  border: none; /* Sin borde */
+  z-index: 2002; /* Capa superior */
+  position: relative; /* Para posicionar hijos relativos a este */
+  transition: box-shadow 0.2s; /* Transición suave de sombra */
+}
+
+/* Sombra al pasar el mouse sobre el botón hamburguesa */
+.hamburger:hover {
+  box-shadow: 0 4px 16px rgba(142,68,173,0.18); /* Sombra más intensa al hacer hover */
+}
+
+/* Líneas del botón hamburguesa */
+.hamburger span {
+  background: #8e44ad; /* Color morado */
+  display: block; /* Cada línea es un bloque */
+  height: 4px; /* Alto de la línea */
+  width: 22px; /* Ancho de la línea */
+  border-radius: 2px; /* Bordes redondeados */
+  margin: 2.5px 0; /* Espacio vertical entre líneas */
+  transition: all 0.4s cubic-bezier(.77,0,.18,1); /* Transición suave */
+  position: relative; /* Para animaciones */
+}
+
+/* Animación de la hamburguesa a X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px); /* Rota y desplaza la primera línea */
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0; /* Oculta la segunda línea */
+  transform: scaleX(0.5); /* La encoge horizontalmente */
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px); /* Rota y desplaza la tercera línea */
+}
+
+/* Botón de menú hamburguesa alternativo */
+.menu-toggle {
+  width: 30px; /* Ancho del botón */
+  height: 30px; /* Alto del botón */
+  position: relative; /* Para posicionar hijos */
+  cursor: pointer; /* Cursor de mano */
+  z-index: 11; /* Capa superior */
+  margin-right: 30px; /* Espacio a la derecha */
+}
+.menu-toggle span {
+  display: block; /* Cada línea es un bloque */
+  height: 4px; /* Alto de la línea */
+  width: 100%; /* Ancho completo del botón */
+  background: #a84cc7; /* Color morado alternativo */
+  margin: 5px 0; /* Espacio vertical entre líneas */
+  border-radius: 2px; /* Bordes redondeados */
+  transition: 0.4s; /* Transición suave */
+}
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px); /* Rota y desplaza la primera línea */
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0; /* Oculta la segunda línea */
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px); /* Rota y desplaza la tercera línea */
+}
+
+/* Menú lateral deslizable */
+.sidebar {
+  position: fixed;                /* Fija el menú en la pantalla */
+  top: 0;                         /* Arriba de la ventana */
+  right: -250px;                  /* Oculto fuera de la pantalla por defecto */
+  width: 250px;                   /* Ancho del menú */
+  height: 100%;                   /* Ocupa toda la altura de la ventana */
+  background: white;              /* Fondo blanco */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Sombra a la izquierda */
+  padding: 60px 20px;             /* Espaciado interno arriba y a los lados */
+  transition: right 0.4s ease;    /* Transición suave al mostrar/ocultar */
+  z-index: 10;                    /* Capa superior */
+}
+
+/* Sidebar en modo oscuro */
+body.dark-mode .sidebar {
+  background-color: #2d2540;      /* Fondo oscuro */
+  color: #f0f0f0;                 /* Texto claro */
+}
+
+/* Sidebar visible */
+.sidebar.active {
+  right: 0;                       /* Muestra el menú alineado a la derecha */
+  transform: translateX(0);       /* Sin desplazamiento extra */
+}
+
+/* Enlaces del sidebar */
+.sidebar a {
+  display: block;                 /* Cada enlace ocupa toda la línea */
+  margin: 10px 0;                 /* Espacio vertical entre enlaces */
+  color: #7e2aa8;                 /* Color morado */
+  text-decoration: none;          /* Sin subrayado */
+  font-weight: bold;              /* Texto en negrita */
+  font-size: 14px;                /* Tamaño de fuente */
+  padding: 8px 8px;               /* Espaciado interno */
+  background-color: #f3eaff;      /* Fondo claro */
+  border-radius: 10px;            /* Bordes redondeados */
+  transition: transform 0.4s ease;/* Transición suave al interactuar */
+}
+
+/* Enlaces del sidebar en modo oscuro */
+body.dark-mode .sidebar a {
+  color: #3b175b;                 /* Color de texto en modo oscuro */
+}
+
+/* Hover en enlaces del sidebar */
+.sidebar a:hover {
+  background-color: #e2d4fa;      /* Fondo más claro al pasar el mouse */
+}
+body.dark-mode .sidebar a:hover {
+  background: #3a2c4f;            /* Fondo oscuro al pasar el mouse en modo oscuro */
+}
+
+/* Fondo oscuro al abrir el menú lateral */
+.overlay {
+  position: fixed;                /* Fijo en toda la pantalla */
+  top: 0;                         /* Arriba */
+  left: 0;                        /* Izquierda */
+  width: 100vw;                   /* Ancho total de la ventana */
+  height: 100vh;                  /* Alto total de la ventana */
+  background: rgba(0, 0, 0, 0.13);/* Fondo negro semitransparente */
+  opacity: 0;                     /* Invisible por defecto */
+  pointer-events: none;           /* No interactúa por defecto */
+  transition: opacity 0.3s ease;  /* Transición suave de opacidad */
+  z-index: 1000;                  /* Capa superior */
+}
+.overlay.active {
+  opacity: 1;                     /* Visible cuando está activo */
+  pointer-events: auto;           /* Permite interacción */
+}
+
+/* Contenedor del formulario */
+.form-container {
+  margin-top: 60px;               /* Espacio arriba */
+  background-color: #fff;         /* Fondo blanco */
+  padding: 36px 44px 32px 44px;   /* Espaciado interno (arriba, derecha, abajo, izquierda) */
+  border-radius: 16px;            /* Bordes redondeados */
+  max-width: 500px;               /* Ancho máximo */
+  width: 100%;                    /* Ocupa todo el ancho disponible */
+  margin: 60px auto 40px auto;    /* Centrado horizontal y espacio arriba/abajo */
+  box-shadow: 0 8px 32px rgba(142,68,173,0.10); /* Sombra suave */
+  opacity: 0;                     /* Invisible para animación inicial */
+  transform: translateY(40px) scale(0.97); /* Desplazado y reducido para animación */
+  animation: fadeInForm 1.4s 0.2s cubic-bezier(.77,0,.18,1) forwards; /* Animación de entrada */
+}
+
+/* Animación de entrada para el formulario */
+/* Animación de entrada para el formulario */
+@keyframes fadeInForm {
+  0% {
+    opacity: 0; /* Comienza invisible */
+    transform: translateY(40px) scale(0.97); /* Desplazado hacia abajo y reducido */
+    filter: blur(8px); /* Difuminado */
+  }
+  70% {
+    opacity: 1; /* Visible */
+    transform: translateY(-6px) scale(1.01); /* Rebote hacia arriba y levemente agrandado */
+    filter: blur(0.5px); /* Casi sin difuminar */
+  }
+  100% {
+    opacity: 1; /* Totalmente visible */
+    transform: translateY(0) scale(1); /* Posición y tamaño normal */
+    filter: blur(0); /* Sin difuminado */
+  }
+}
+
+/* Formulario en modo oscuro */
+body.dark-mode .form-container {
+  background: rgba(30, 30, 30, 0.8); /* Fondo oscuro semitransparente */
+  color: #f0f0f0; /* Texto claro */
+  box-shadow: 0 8px 32px rgba(255,255,255,0.08); /* Sombra clara */
+}
+
+/* Título del formulario */
+h2 {
+  text-align: center; /* Centrado */
+  color: #8e44ad; /* Color morado */
+  margin-bottom: 24px; /* Espacio debajo */
+  font-size: 1.5rem; /* Tamaño grande */
+  font-weight: 700; /* Negrita */
+  letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+/* Etiquetas de los campos */
+label {
+  display: block; /* Ocupa toda la línea */
+  margin-top: 18px; /* Espacio arriba */
+  font-weight: 600; /* Seminegrita */
+  color: #8e44ad; /* Morado */
+  letter-spacing: 0.2px; /* Espaciado leve */
+}
+
+/* Campos de entrada, select y textarea */
+input, select, textarea {
+  width: 100%; /* Ocupa todo el ancho */
+  padding: 12px; /* Espaciado interno */
+  margin-top: 6px; /* Espacio arriba */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 1.5px solid #c39bd3; /* Borde morado claro */
+  font-size: 15px; /* Tamaño de texto */
+  background: #f8f7fc; /* Fondo claro */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+}
+
+/* Efecto al enfocar campos */
+input:focus, select:focus, textarea:focus {
+  border-color: #8e44ad; /* Borde morado intenso */
+  outline: none; /* Sin contorno extra */
+  box-shadow: 0 0 8px rgba(142,68,173,0.13); /* Sombra morada suave */
+  background: #fff; /* Fondo blanco */
+}
+
+/* Área de texto ajustable */
+textarea {
+  resize: vertical; /* Solo vertical */
+  height: 90px; /* Altura inicial */
+}
+
+/* Grupo de radios (género, etc) */
+.radio-group {
+  display: flex; /* Flexbox horizontal */
+  justify-content: space-between; /* Espaciado entre radios */
+  margin-top: 5px; /* Espacio arriba */
+  gap: 8px; /* Separación entre radios */
+}
+
+/* Oculta los radios originales */
+.radio-group input[type="radio"] {
+  display: none; /* No se muestran */
+}
+
+/* Estilos para las etiquetas de los radios */
+.radio-group label {
+  flex: 1; /* Ocupa el mismo espacio */
+  display: flex; /* Flexbox */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  background: #f3e6fa; /* Fondo morado claro */
+  border-radius: 6px; /* Bordes redondeados */
+  margin: 0 2px; /* Espacio horizontal */
+  padding: 10px 0; /* Espaciado interno */
+  font-weight: 500; /* Seminegrita */
+  cursor: pointer; /* Cursor de mano */
+  border: 1.5px solid transparent; /* Borde invisible por defecto */
+  transition: background 0.2s, border-color 0.2s, color 0.2s; /* Transiciones suaves */
+  color: #8e44ad; /* Morado */
+  font-size: 15px; /* Tamaño de texto */
+}
+
+/* Radio seleccionado */
+.radio-group input[type="radio"]:checked + label {
+  background: #8e44ad; /* Fondo morado intenso */
+  color: white; /* Texto blanco */
+  border-color: #c39bd3; /* Borde morado claro */
+}
+
+/* Contenedor para opción "otro" en género */
+#genero-otro-container {
+  display: none; /* Oculto por defecto */
+  margin-top: 10px; /* Espacio arriba */
+}
+
+/* Contenedor de botones */
+.buttons {
+  display: flex; /* Flexbox horizontal */
+  gap: 12px; /* Separación entre botones */
+  margin-top: 32px; /* Espacio arriba */
+  justify-content: stretch; /* Estira los botones */
+  align-items: stretch; /* Estira verticalmente */
+}
+
+/* Botones generales */
+.btn {
+  flex: 1 1 0; /* Permite que el botón crezca y se reduzca */
+  min-width: 0; /* No hay ancho mínimo */
+  padding: 13px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Bordes redondeados */
+  color: #fff; /* Texto blanco */
+  font-weight: 600; /* Texto seminegrita */
+  cursor: pointer; /* Cursor de mano */
+  text-align: center; /* Texto centrado */
+  font-size: 1rem; /* Tamaño de fuente estándar */
+  letter-spacing: 0.5px; /* Espaciado entre letras */
+  transition: background 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+  box-shadow: 0 2px 8px rgba(142,68,173,0.08); /* Sombra sutil */
+}
+
+/* Botón enviar */
+.enviar { 
+  background: linear-gradient(135deg, #5b525e, #5b525e); /* Fondo degradado gris oscuro */
+}
+.enviar:hover { 
+  background: linear-gradient(135deg, #6c3483, #8e44ad); /* Fondo degradado morado al pasar el mouse */
+}
+
+/* Botón limpiar */
+.limpiar { 
+  background: linear-gradient(135deg, #5b525e, #5b525e); /* Fondo degradado gris oscuro */
+}
+.limpiar:hover { 
+  background: linear-gradient(135deg, #b39ddb, #c39bd3); /* Fondo degradado morado claro al pasar el mouse */
+}
+
+/* Botón salir */
+.salir { 
+  background: linear-gradient(135deg, #5b525e, #5b525e); /* Fondo degradado gris oscuro */
+}
+.salir:hover { 
+  background: linear-gradient(135deg, #a74a53, #bf616a); /* Fondo degradado rojo al pasar el mouse */
+}
+
+/* Responsivo para pantallas medianas */
+@media (max-width: 700px) {
+  .form-container {
+    padding: 18px 4vw; /* Espaciado interno reducido */
+    margin-top: 80px; /* Menos espacio arriba */
+  }
+  .logo {
+    padding: 0 12px; /* Espaciado lateral para el logo */
+  }
+  .hamburger {
+    margin-right: 12px; /* Menos espacio a la derecha */
+  }
+  .side-menu {
+    width: 90vw; /* Menú lateral más ancho */
+    min-width: 180px; /* Ancho mínimo */
+  }
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 10px 2vw; /* Espaciado interno aún menor */
+    margin-top: 70px; /* Menos espacio arriba */
+  }
+  .buttons {
+    flex-direction: column; /* Botones en columna */
+  }
+  .btn {
+    flex: 1 1 100%; /* Botón ocupa todo el ancho */
+  }
+  .radio-group {
+    flex-direction: column; /* Radios en columna */
+    gap: 8px; /* Espacio entre radios */
+  }
+  .side-menu {
+    width: 98vw; /* Menú lateral casi todo el ancho */
+    min-width: 120px; /* Ancho mínimo */
+    padding-top: 0; /* Sin espacio arriba */
+  }
+  .side-menu li {
+    padding: 0 10px; /* Espaciado lateral en los ítems */
+  }
+}
+
+/* Estilos para el switch de modo oscuro */
+.switch {
+  display: block; /* Elemento de bloque */
+  position: relative; /* Para posicionar el slider dentro */
+  width: 60px; /* Ancho del switch */
+  height: 30px; /* Alto del switch */
+  margin: 30px auto 0 auto; /* Centrado horizontal y espacio arriba */
+  z-index: 999; /* Capa superior */
+}
+
+/* Oculta el input del switch */
+.switch input {
+  opacity: 0; /* Invisible */
+  width: 0; /* Sin ancho */
+  height: 0; /* Sin alto */
+}
+
+/* Slider del switch */
+.slider {
+  position: absolute; /* Posicionamiento absoluto dentro del switch */
+  cursor: pointer; /* Cursor de mano */
+  background-color: #ccc; /* Fondo gris claro */
+  border-radius: 34px; /* Bordes redondeados */
+  top: 0; /* Arriba */
+  left: 0; /* Izquierda */
+  right: 0; /* Derecha */
+  bottom: 0; /* Abajo */
+  transition: background-color 0.4s; /* Transición suave de color */
+}
+
+/* Icono del slider (sol/luna) */
+.slider:before {
+  position: absolute; /* Posicionamiento absoluto dentro del slider */
+  content: "🌞"; /* Icono de sol por defecto */
+  height: 26px; /* Alto del icono */
+  width: 26px; /* Ancho del icono */
+  left: 2px; /* Separación izquierda */
+  bottom: 2px; /* Separación abajo */
+  background-color: white; /* Fondo blanco */
+  border-radius: 50%; /* Forma circular */
+  transition: transform 0.4s; /* Transición suave de movimiento */
+  display: flex; /* Flexbox para centrar el icono */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  font-size: 14px; /* Tamaño del icono */
+}
+
+/* Switch activado (modo oscuro) */
+input:checked + .slider {
+  background-color: #6c3cb5; /* Fondo morado oscuro */
+}
+input:checked + .slider:before {
+  transform: translateX(30px); /* Mueve el icono a la derecha */
+  content: "🌙"; /* Cambia el icono a luna */
+}
+
+/* Modal en modo oscuro */
+body.dark-mode .modal-content {
+  background-color: #23213a;
+  color: #f0f0f0;
+  box-shadow: 0 8px 24px rgba(255,255,255,0.08);
+}
+
+/* Título del modal en modo oscuro */
+body.dark-mode .modal-text h3 {
+  color: #a178e3;
+}
+
+/* Texto del modal en modo oscuro */
+body.dark-mode .modal-text p {
+  color: #e0e0e0;
+}
+
+/* Etiqueta del switch de modo oscuro */
+#darkModeLabel {
+  color: #7e2aa8;
+  font-size: 15px;
+}
+
+/* Etiqueta del switch en modo oscuro */
+body.dark-mode #darkModeLabel {
+  color: #f0f0f0;
+}
+
+/* Mejoras para pantallas medianas (tablets y móviles grandes) */
+@media (max-width: 700px) {
+  .form-container {
+    padding: 14px 2vw;
+    margin-top: 90px;
+    max-width: 98vw; /* El formulario ocupa casi todo el ancho de la ventana */
+    }
+    header {
+    padding: 8px 8px; /* Reduce el padding del header para pantallas medianas */
+    }
+    .logo h1 {
+    font-size: 1.2rem; /* Reduce el tamaño del título del logo */
+    }
+    .sidebar {
+    width: 80vw; /* Sidebar ocupa el 80% del ancho de la ventana */
+    min-width: 150px; /* Ancho mínimo del sidebar */
+    padding: 60px 10px; /* Espaciado interno reducido */
+    }
+  }
+
+  /* Mejoras para pantallas pequeñas (móviles) */
+  @media (max-width: 480px) {
+    header {
+    flex-direction: column; /* Header en columna */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    padding: 6px 4px; /* Padding reducido */
+    }
+    .logo img {
+    height: 38px; /* Imagen del logo más pequeña */
+    }
+    .logo h1 {
+    font-size: 1rem; /* Título del logo más pequeño */
+    }
+    .form-container {
+    padding: 6px 1vw; /* Padding mínimo en el formulario */
+    margin-top: 70px; /* Menos espacio arriba */
+    max-width: 99vw; /* El formulario ocupa casi todo el ancho */
+    border-radius: 8px; /* Bordes menos redondeados */
+    }
+    .buttons {
+    flex-direction: column; /* Botones en columna */
+    gap: 8px; /* Menor separación entre botones */
+    }
+    .btn {
+    font-size: 0.95rem; /* Botón con fuente más pequeña */
+    padding: 11px; /* Menos padding */
+    }
+    .radio-group {
+    flex-direction: column; /* Radios en columna */
+    gap: 6px; /* Menor separación entre radios */
+    }
+    label, .radio-group label {
+    font-size: 0.98rem; /* Etiquetas con fuente más pequeña */
+    }
+  @media (max-width: 700px) {
+   .sidebar {
+    width: 80vw;
+    min-width: 140px;
+    max-width: 95vw; /* No más ancho que la pantalla */
+    right: -80vw;    /* Oculto fuera de pantalla */
+    padding: 60px 10px;
+  }
+  .sidebar.active {
+    right: 0;
+  }
+}
+  /* Mejoras para pantallas muy pequeñas (móviles pequeños) */
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 95vw; /* Sidebar ocupa casi todo el ancho de la ventana */
+    min-width: 100px; /* Ancho mínimo del sidebar */
+    max-width: 99vw; /* No más ancho que la pantalla */
+    right: -95vw;    /* Oculto fuera de pantalla */
+    padding: 50px 6px; /* Espaciado interno reducido */
+  }
+  .sidebar.active {
+    right: 0; /* Muestra el sidebar alineado a la derecha */
+  }
+  .switch {
+    width: 44px; /* Ancho del switch */
+    height: 22px;   /* Alto del switch */
+    margin: 20px auto; /* Centrado horizontal y espacio arriba */
+    margin-top: 18px; /* Menos espacio arriba */
+  }
+  .slider:before {
+    height: 18px; /* Alto del icono */
+    width: 18px; /* Ancho del icono */
+    font-size: 11px; /* Tamaño del icono */
+    left: 2px; /* Separación  izquierda */
+    bottom: 2px; /* Separación abajo */
+  }
+}};

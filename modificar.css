@@ -1,0 +1,179 @@
+/* Aplica box-sizing a todos los elementos y elimina márgenes y rellenos por defecto */
+* {   
+  box-sizing: border-box;   /* Asegura que el padding y el borde se incluyan en el ancho y alto total */
+  margin: 0;  /* Elimina márgenes por defecto */
+  padding: 0;     /* Elimina márgenes y rellenos por defecto */
+}
+
+/* Estilos generales del body: fuente, fondo, centrado y padding */
+body {  /* Estilos del body */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+  background-color: #432874; /* Morado profesional */
+  display: flex;    /* Flexbox para centrar contenido */
+  justify-content: center;  /* Centrado horizontal */
+  align-items: center;  /* Centrado vertical y horizontal */
+  min-height: 100vh;  /* Ocupa toda la altura de la ventana */
+  padding: 20px;  /* Espacio alrededor del contenido */
+}
+
+/* Contenedor principal del formulario */
+.form-container { /* Contenedor del formulario */
+  background: white;  /* Fondo blanco para el formulario */
+  border-radius: 12px; /* Bordes redondeados */
+  padding: 30px;  /* Espacio interno del formulario */
+  max-width: 500px; /* Ancho máximo del formulario */
+  width: 100%;  /* Ancho completo en pantallas pequeñas */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25); /* Sombra */
+  animation: fadeIn 0.6s ease; /* Animación de entrada */
+}
+
+/* Animación de aparición suave */
+@keyframes fadeIn {   /* Animación de entrada suave */
+  from {opacity: 0; transform: scale(0.95);}  /* Efecto de entrada suave */
+  to {opacity: 1; transform: scale(1);}     /* Efecto de entrada suave */
+}
+
+/* Título del formulario */
+h2 {
+  color: #4B0082; /* Morado oscuro */
+  text-align: center; /* Centrado del título */
+  margin-bottom: 25px;  /* Espacio debajo del título */
+}
+
+/* Etiquetas de los campos */
+label { /* Etiquetas de los campos */
+  display: block; /* Bloque para ocupar todo el ancho */
+  margin-top: 12px; /* Espacio entre etiqueta y campo */
+  font-weight: 600; /* Negrita para destacar */
+  font-size: 14px;  /* Tamaño de fuente */
+  color: #333;  /* Gris oscuro */
+}
+
+/* Campos de entrada, select y textarea */
+input, select, textarea { /* Campos de entrada */
+  width: 100%;  /* Ocupa todo el ancho del contenedor */
+  padding: 10px;  /* Espacio interno */
+  margin-top: 6px;  /* Espacio entre etiqueta y campo */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde gris claro */
+  font-size: 14px;  /* Tamaño de fuente */
+}
+
+/* Grupo de botones de radio */
+.radio-group {  /* Contenedor para los radios */
+  margin-top: 6px;  /* Espacio superior para grupo de radio */
+  display: flex;  /* Flexbox para alinear radios */
+  gap: 10px; /* Espacio entre radios */
+}
+
+/* Etiquetas dentro del grupo de radio */
+.radio-group label {  /* Etiquetas de radio */
+  font-weight: normal;  /* Normal para etiquetas de radio */
+}
+
+/* Contenedor de botones */
+.buttons {        /* Contenedor para los botones */
+  margin-top: 25px; /* Espacio superior para botones */
+  display: flex;    /* Flexbox para alinear botones */
+  justify-content: space-between; /* Espacio entre botones */
+}
+
+/* Estilos generales de los botones */
+.btn {
+  flex: 1;  /* Ocupa el mismo espacio */
+  padding: 10px;  /* Espacio interno del botón */
+  margin: 0 5px;  /* Espacio entre botones */
+  border-radius: 6px; /* Bordes redondeados */
+  border: none; /* Sin borde */
+  font-weight: bold;    /* Negrita para destacar */
+  font-size: 14px;  /* Tamaño de fuente */
+  cursor: pointer;  /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+  color: white; /* Texto blanco */
+}
+
+/* Botón de modificar (verde) */
+.modificar {  /* Verde para el botón de modificar */
+  background-color: #198754;  /* Verde */
+}
+
+/* Hover para botón modificar */
+.modificar:hover {  /* Cambia el color al pasar el ratón */
+  background-color: #157347; /* Verde más oscuro */
+}
+
+/* Botón de volver (gris) */
+.volver {   /* Gris para el botón de volver */
+  background-color: #6c757d; /* Gris */
+}
+
+/* Hover para botón volver */
+.volver:hover {   /* Cambia el color al pasar el ratón */
+  background-color: #5a6268; /* Gris más oscuro */
+}
+
+/* Área de texto redimensionable verticalmente */
+textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 80px; /* Altura mínima */
+}
+
+/* --- Responsive Design para móviles: modificar.css --- */
+@media (max-width: 600px) {   /* Estilos específicos para móviles */
+  /* El body usa menos padding y fuente más grande para mejor legibilidad */
+  body {
+    padding: 6px; /* Menos padding */
+    font-size: 1.05rem; /* Fuente más grande para móviles */
+  }
+
+  /* El contenedor del formulario ocupa casi todo el ancho y menos padding */
+  .form-container {
+    max-width: 98vw;         /* Casi todo el ancho de la pantalla */
+    padding: 16px 6px;       /* Menos padding */
+    border-radius: 10px;     /* Bordes ligeramente más pequeños */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.18); /* Sombra más suave */
+  }
+
+  /* Título más pequeño y menos margen */
+  h2 {
+    font-size: 1.2rem; /* Fuente más pequeña */
+    margin-bottom: 16px; /* Menos margen inferior */
+  }
+
+  /* Etiquetas y campos de entrada más grandes y con menos margen */
+  label {
+    font-size: 1rem; /* Fuente más grande */
+    margin-top: 10px; /* Menos margen superior */
+  }
+  input, select, textarea {
+    font-size: 1rem; /* Fuente más grande */
+    padding: 10px; /* Más espacio para mejor clic */
+    margin-top: 4px; /* Menos margen superior */
+  }
+
+  /* Grupo de radios en columna para mejor adaptación */
+  .radio-group { /* Radios apilados verticalmente */
+    flex-direction: column; /* Apilados verticalmente */
+    gap: 4px; /* Espacio entre radios */
+  }
+
+  /* Botones apilados en columna y ocupan todo el ancho */
+  .buttons {
+    flex-direction: column;   /* Apilados verticalmente */
+    gap: 10px; /* Espacio entre botones */
+    margin-top: 18px; /* Menos margen superior */
+  }
+  .btn {
+    width: 100%; /* Botones ocupan todo el ancho */
+    margin: 0; /* Sin margen entre botones */
+    font-size: 1rem; /* Fuente más grande */
+    padding: 14px 0; /* Más espacio para mejor clic */
+    border-radius: 10px; /* Bordes más redondeados */
+  }
+
+  /* Área de texto más pequeña y adaptable */
+  textarea {
+    min-height: 60px; /* Más pequeña para móviles */
+    font-size: 1rem;  /* Fuente más grande */
+  }
+}

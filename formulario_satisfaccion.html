@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario de Satisfacción</title>
+  <link rel="stylesheet" href="../css/formulario_satisfaccion.css" />
+</head>
+<body>
+
+  <header>
+    <!-- Encabezado principal con logo y menú -->
+    <div class="logo">
+      <img src="../imagenes/logo_cecyayuda.png" alt="Logo">
+      <h1>CecyAyuda</h1>
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </div>
+
+    <!-- Menú lateral -->
+    <nav class="sidebar" id="sidebar">
+       <!-- Enlaces a diferentes secciones del sistema, cada uno con un ícono SVG -->
+       <a href="pagina principal denuncia pec.html">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+</svg>  Página Principal</a>
+      <a href="formulario_denuncia.html">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">  <!-- Icono de archivo -->
+  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>   <!-- Icono de archivo -->
+</svg>  Hacer Denuncia</a>  <!-- Enlace al formulario de denuncia -->
+      <a href="../php/consultar.php">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
+  <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"/>
+</svg>  Consultar Estado</a>
+<a href="../php/instituciones.php">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+      <path d="M6.5 15V1h-2v14h2zm5 0V1h-2v14h2zm-8 0V1h-2v14h2zm11 0V1h-2v14h2z"/>
+      <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1h-14v1zm1-2h12v-1h-12v1zm0-2h12v-1h-12v1zm0-2h12v-1h-12v1zm0-2h12v-1h-12v1zm0-2h12v-1h-12v1z"/>
+    </svg> Instituciones
+    <a href="../php/consulta_tipos_de_violencia.php">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+      <path d="M7.938 2.016a.13.13 0 0 1 .125 0l6.857 11.856c.028.049.043.105.043.163a.25.25 0 0 1-.25.25H1.287a.25.25 0 0 1-.25-.25.267.267 0 0 1 .043-.163L7.938 2.016zm.89 3.534a.535.535 0 0 0-1.056 0l-.35 3.5a.5.5 0 0 0 .5.55h.756a.5.5 0 0 0 .5-.55l-.35-3.5zM8 12.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5z"/>
+    </svg>
+    Tipos de Violencia
+  </a>
+  <a href="formulario_satisfaccion.html">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+    <path d="M4 1.5A1.5 1.5 0 0 1 5.5 0h5A1.5 1.5 0 0 1 12 1.5V2h1.5A1.5 1.5 0 0 1 15 3.5v11A1.5 1.5 0 0 1 13.5 16h-11A1.5 1.5 0 0 1 1 14.5v-11A1.5 1.5 0 0 1 2.5 2H4v-.5zm1 0V2h6v-.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5zM2.5 3A.5.5 0 0 0 2 3.5v11a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5H13v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1H2.5z"/>
+  </svg>
+  Satisfacción
+</a>
+  <a href="Podcast.html">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+    <path d="M8 12a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v4a3 3 0 0 0 3 3z"/>
+    <path d="M5 10.5a.5.5 0 0 1 .5.5v1a2.5 2.5 0 0 0 5 0v-1a.5.5 0 0 1 1 0v1a3.5 3.5 0 0 1-7 0v-1a.5.5 0 0 1 .5-.5z"/>
+    <path d="M8 15a.5.5 0 0 1-.5-.5V14h1v.5a.5.5 0 0 1-.5.5z"/>
+  </svg>
+  Podcast
+</a>
+<a href="juego_preguntas.html">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller" viewBox="0 0 16 16">
+    <path d="M11.5 6a.5.5 0 0 1 .5.5V8h1.5a.5.5 0 0 1 0 1H12v1.5a.5.5 0 0 1-1 0V9H9.5a.5.5 0 0 1 0-1H11V6.5a.5.5 0 0 1 .5-.5z"/>
+    <path d="M6.5 2a5.5 5.5 0 0 0-5.478 6.09A2.5 2.5 0 0 0 3.5 15h9a2.5 2.5 0 0 0 2.478-2.91A5.5 5.5 0 0 0 6.5 2zm0 1a4.5 4.5 0 0 1 4.473 5.01.5.5 0 0 0 .527.49h.5a1.5 1.5 0 0 1 1.493 1.356A1.5 1.5 0 0 1 12.5 14h-9a1.5 1.5 0 0 1-1.493-1.644A1.5 1.5 0 0 1 2.5 9.5h.5a.5.5 0 0 0 .527-.49A4.5 4.5 0 0 1 6.5 3z"/>
+  </svg>
+  Juego de Preguntas
+</a>
+    <!-- Interruptor para cambiar entre modo claro y oscuro -->
+    <label class="switch" style="margin-top: 30px;">
+  <input type="checkbox" id="darkModeToggle">
+  <span class="slider"></span>
+</label>
+<span id="darkModeLabel" style="display: block; margin-top: 10px; font-weight: bold; text-align: center;">
+  Modo Claro
+</span>
+    </nav>
+  </header>
+
+<form id="form-container" action="../php/formulario_satisfaccion.php" method="POST">
+  <label>¿Fue atendida con respeto?</label>
+ <select name="respeto">
+    <option value="">Seleccione</option>
+    <option value="Sí">Sí</option>
+    <option value="No">No</option>
+  </select>
+
+  <label>¿Recibió la ayuda necesaria?</label>
+  <select name="ayuda">
+    <option value="">Seleccione</option>
+    <option value="Sí">Sí</option>
+    <option value="No">No</option>
+  </select>
+
+  <label>¿Se sintió escuchada y comprendida?</label>
+  <select name="escuchada">
+    <option value="">Seleccione</option>
+    <option value="Sí">Sí</option>
+    <option value="No">No</option>
+  </select>
+
+  <label>¿Recomendaría nuestra página a otras personas?</label>
+  <select name="recomendaria">
+    <option value="">Seleccione</option>
+    <option value="Sí">Sí</option>
+    <option value="No">No</option>
+  </select>
+
+  <label>Del 1 al 5, ¿qué tan buena fue su experiencia con nosotros?</label>
+  <select name="calificacion">
+    <option value="">Seleccione</option>
+    <option value="1">1 - Muy mala</option>
+    <option value="2">2 - Mala</option>
+    <option value="3">3 - Regular</option>
+    <option value="4">4 - Buena</option>
+    <option value="5">5 - Excelente</option>
+  </select>
+
+  <label>Comentarios adicionales:</label>
+  <textarea name="comentarios" rows="4"></textarea>
+
+  <button type="submit">Enviar</button>
+</form>
+
+  <script src="../javascript/formulario_satisfaccion.js"></script>
+</body>
+</html>

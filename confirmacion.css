@@ -1,0 +1,170 @@
+/* Estilos generales para el body */
+body {
+  margin: 0;/* Elimina el margen por defecto */
+  font-family: Arial, sans-serif; /* Fuente principal */
+  background: #ede7f6; /* Color de fondo lila claro */
+  color: #333; /* Color de texto principal */
+}
+/* Fondo animado de partículas */
+#tsparticles {
+  position: fixed;  /* Fijo en la pantalla */
+  width: 100%; /* Ocupa todo el ancho */
+  height: 100%; /* Ocupa todo el alto */
+  z-index: -1; /* Detrás del contenido */
+}
+/* Contenedor principal de la confirmación */
+.container {
+  max-width: 800px;/* Ancho máximo */
+  margin: 80px auto; /* Centrado vertical y horizontal */
+  background: #f3e5f5; /* Fondo lila suave */
+  padding: 30px; /* Espaciado interno */
+  border-radius: 12px;/* Bordes redondeados */
+  box-shadow: 0 0 15px rgba(100, 100, 111, 0.2);/* Sombra suave */
+}
+/* Título principal */
+h2 {
+  color: #6a1b9a; /* Color morado */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+/* Párrafos */
+p {
+  margin: 10px 0; /* Espaciado vertical */
+}
+/* Contenedor de botones */
+.buttons {
+  margin-top: 30px;/* Espacio superior */
+  display: flex;/* Distribución en fila */
+  gap: 15px; /* Separación entre botones */
+}
+/* Estilos generales para los botones */
+button {
+  padding: 10px 20px; /* Espaciado interno */
+  border: none;/* Sin borde */
+  border-radius: 8px;/* Bordes redondeados */
+  font-weight: bold; /* Texto en negrita */
+  cursor: pointer; /* Cursor de mano */
+  transition: background 0.3s ease; /* Transición suave al pasar el mouse */
+}
+/* Botón para modificar */
+.modificar {
+  background-color: #7e57c2; /* Morado medio */
+  color: white; /* Texto blanco */
+}
+/* Botón para nueva acción */
+.nueva {
+  background-color: #ab47bc; /* Morado rosado */
+  color: white; /* Texto blanco */
+}
+/* Botón para eliminar */
+.eliminar {
+  background-color: #e57373; /* Rojo suave */
+  color: white; /* Texto blanco */
+}
+/* Efecto hover para todos los botones */
+button:hover {
+  opacity: 0.9; /* Ligeramente más opaco */
+}
+/* Fondo del modal (ventana emergente) */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Fijo en la pantalla */
+  z-index: 999; /* Encima del contenido */
+  left: 0; top: 0; /* Ocupa toda la pantalla */
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permite scroll si es necesario */
+  background-color: rgba(0,0,0,0.6); /* Fondo oscuro semitransparente */
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: #fff;/* Fondo blanco */
+  margin: 10% auto; /* Centrado vertical y horizontal */
+  padding: 25px;/* Espaciado interno */
+  border: 1px solid #888;/* Borde gris */
+  width: 80%; /* Ancho relativo */
+  max-width: 400px; /* Ancho máximo */
+  border-radius: 10px; /* Bordes redondeados */
+  text-align: center; /* Texto centrado */
+}
+/* Contenedor de los botones del modal */
+.modal-buttons {
+  display: flex;/* Distribución en fila */
+  justify-content: space-between; /* Espaciado entre botones */
+  margin-top: 20px; /* Espacio superior */
+}
+/* Botón para cancelar en el modal */
+.cancelar {
+  background-color: #9e9e9e; /* Gris */
+  color: white; /* Texto blanco */
+}
+/* Botón para confirmar en el modal */
+.confirmar {
+  background-color: #d32f2f; /* Rojo fuerte */
+  color: white; /* Texto blanco */
+}
+
+/* --- Responsive Design para móviles: confirmacion.css --- */
+@media (max-width: 600px) { /* Aplica estilos solo en pantallas de hasta 600px de ancho */
+  /* El body usa un tamaño de fuente más grande para mejor legibilidad */
+  body {
+    font-size: 1.05rem;      /* Aumenta el tamaño de fuente */
+    padding: 0;              /* Sin padding extra */
+  }
+
+  /* El contenedor principal ocupa casi todo el ancho y menos margen */
+  .container {
+    max-width: 98vw;         /* Casi todo el ancho de la pantalla */
+    margin: 30px auto;       /* Menos margen arriba/abajo, centrado horizontal */
+    padding: 18px 6px;       /* Menos padding interno */
+    border-radius: 10px;     /* Bordes ligeramente más pequeños */
+  }
+
+  /* Título más pequeño y menos margen */
+  h2 {
+    font-size: 1.2rem;       /* Reduce el tamaño del título */
+    margin-bottom: 14px;     /* Menos espacio debajo del título */
+  }
+
+  /* Párrafos con menos margen */
+  p {
+    margin: 8px 0;           /* Menos espacio vertical */
+    font-size: 1rem;         /* Ajusta el tamaño de fuente */
+  }
+
+  /* Botones ocupan todo el ancho y se apilan en columna */
+  .buttons {
+    flex-direction: column;  /* Apila los botones verticalmente */
+    gap: 10px;               /* Menos espacio entre botones */
+    margin-top: 18px;        /* Menos espacio arriba */
+  }
+  button, .buttons button {
+    width: 100%;             /* Botones ocupan todo el ancho */
+    font-size: 1rem;         /* Ajusta el tamaño de fuente */
+    padding: 14px 0;         /* Más alto, menos ancho */
+    border-radius: 10px;     /* Bordes redondeados */
+  }
+
+  /* Modal ocupa casi toda la pantalla en móvil */
+  .modal-content {
+    width: 96vw;             /* Casi todo el ancho de la pantalla */
+    max-width: 98vw;         /* Limita el ancho máximo */
+    margin: 30% auto;        /* Centrado vertical y horizontal */
+    padding: 18px 6px;       /* Menos padding interno */
+    border-radius: 10px;     /* Bordes redondeados */
+    font-size: 1rem;         /* Ajusta el tamaño de fuente */
+  }
+
+  /* Botones del modal también en columna */
+  .modal-buttons {
+    flex-direction: column;  /* Apila los botones verticalmente */
+    gap: 10px;               /* Espacio entre botones */
+    margin-top: 14px;        /* Menos espacio arriba */
+  }
+  .modal-buttons button {
+    width: 100%;             /* Botones ocupan todo el ancho */
+    font-size: 1rem;         /* Ajusta el tamaño de fuente */
+    padding: 12px 0;         /* Más alto, menos ancho */
+    border-radius: 10px;     /* Bordes redondeados */
+  }
+}
